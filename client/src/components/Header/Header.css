@@ -8,4 +8,24 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
+  height: 100%;
+}
+
+.header-content__logo {
+  display: flex;
+  align-items: center;
+}
+
+.header-content__logo h2 {
+  font-size: 30px;
+  letter-spacing: 1px;
+}
+
+.header-content__logo-text p {
+  font-size: 12px;
+}
+
+.header-content__logo-text img {
+  width: 45px;
+  height: 45px;
 }
