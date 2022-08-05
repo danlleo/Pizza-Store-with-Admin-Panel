@@ -1,0 +1,18 @@
+.banner {
+  margin-left: 2rem;
+  display: flex;
+  height: 170px;
+  width: 100%;
+  border-radius: 15px;
+  background: linear-gradient(
+    223.73deg,
+    rgba(4, 4, 4, 0) 33.33%,
+    #000 128.35%,
+    #000 128.35%,
+    #000 128.35%
+  );
+  background-image: url("https://mir-s3-cdn-cf.behance.net/project_modules/fs/4e0cc328008799.56e41b35c50a5.gif");
+  background-size: cover;
+  background-color: transparent;
+  padding: 1rem;
+}

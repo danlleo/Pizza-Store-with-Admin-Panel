@@ -4,12 +4,17 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
+}
+
+/* VARIABLES */
+:root {
+  --accent-color: #fd6f0a;
 }
 
 /* BASIC STYLES */
 
-.w-1360 {
-  width: 1360px;
+.w-1560 {
+  width: 1560px;
   margin: 0 auto;
 }

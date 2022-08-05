@@ -6,7 +6,7 @@
 
 .header-content {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   height: 100%;
 }
@@ -21,7 +21,7 @@
 }
 
 .header-content__logo-text {
-  margin-left: .5rem;
+  margin-left: 0.5rem;
 }
 
 .header-content__logo img {
@@ -29,12 +29,39 @@
   height: 45px;
 }
 
-
 .header-content__list ul {
   display: flex;
 }
 
 .header-content__list ul li {
   list-style-type: none;
-  
+}
+
+.header-content__list ul li a {
+  padding: 1rem 0.5rem;
+  text-decoration: none;
+  color: #000;
+  transition: 0.2s ease;
+  font-weight: 500;
+}
+
+.header-content__list ul li a:hover {
+  color: var(--accent-color);
+}
+
+.header-content__cart button {
+  padding: 0.5rem 2rem;
+  border-radius: 15px;
+  border: none;
+  color: #fff;
+  background: var(--accent-color);
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  transition: 0.2s ease;
+}
+
+.header-content__cart button:hover {
+  background: #de630c;
 }
