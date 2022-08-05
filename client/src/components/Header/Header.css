@@ -16,16 +16,25 @@
   align-items: center;
 }
 
-.header-content__logo h2 {
-  font-size: 30px;
+.header-content__logo h3 {
   letter-spacing: 1px;
 }
 
-.header-content__logo-text p {
-  font-size: 12px;
+.header-content__logo-text {
+  margin-left: .5rem;
 }
 
-.header-content__logo-text img {
+.header-content__logo img {
   width: 45px;
   height: 45px;
+}
+
+
+.header-content__list ul {
+  display: flex;
+}
+
+.header-content__list ul li {
+  list-style-type: none;
+  
 }

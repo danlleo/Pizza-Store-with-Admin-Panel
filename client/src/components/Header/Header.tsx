@@ -5,12 +5,20 @@ const Header = () => {
   return (
     <div className="header">
       <div className="header-content w-1360">
-        <div className="header-content__logo-text">
+        <div className="header-content__logo">
           <img src={Icon} alt="logo" />
-          <div>
+          <div className="header-content__logo-text">
             <h2>Pizza Kyiv</h2>
-            <p>№1 Pizza App in Ukraine</p>
           </div>
+        </div>
+        <div className="header-content__list">
+          <ul>
+            <li>Pizza</li>
+            <li>Combo</li>
+            <li>Snacks</li>
+            <li>Drinks</li>
+            <li>Deserts</li>
+          </ul>
         </div>
       </div>
     </div>
