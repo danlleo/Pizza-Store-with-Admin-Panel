@@ -14,8 +14,8 @@ const DishItem = () => {
           <p>Маргаріта, розмір L</p>
         </div>
         <div className="dishItem-about__info">
-            <p className="dishItem-about__info-price">175 ₴</p>
-            <p>500 G</p>
+          <p className="dishItem-about__info-price">175 ₴</p>
+          <p>500 G</p>
         </div>
       </div>
     </div>
