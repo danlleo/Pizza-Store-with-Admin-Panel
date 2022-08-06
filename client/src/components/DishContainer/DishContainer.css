@@ -1,0 +1,26 @@
+.dishContainer {
+  margin-top: 2rem;
+}
+
+.dishContainer h1 {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.dishContainer-image {
+  display: flex;
+}
+
+.dishItem-image img {
+  object-position: center center;
+  object-fit: cover;
+  width: 100%;
+  max-width: 100%;
+  max-height: 160px;
+}
+
+.dishContainer-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
+}

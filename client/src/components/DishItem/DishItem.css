@@ -1,0 +1,33 @@
+.dishItem {
+  display: flex;
+  flex-direction: column;
+  height: 255px;
+  border-radius: 15px;
+  overflow: hidden;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  filter: drop-shadow(rgba(0, 0, 0, 0.07) 0px 0px 10px);
+  background: #fff;
+}
+
+.dishItem:hover {
+  transform: translateY(-10px);
+}
+
+.dishItem-about__name {
+  font-weight: 500;
+  margin: 1rem 0;
+}
+
+.dishItem-about {
+  padding: 0 1rem;
+}
+
+.dishItem-about__info {
+  display: flex;
+  justify-content: space-between;
+}
+
+.dishItem-about__info-price {
+  font-weight: 500;
+}
