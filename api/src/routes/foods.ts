@@ -1,4 +1,4 @@
-import express, { Router, Request, Response, NextFunction } from 'express'
+import express, { Request, NextFunction } from 'express'
 import Foods from '../models/foods';
 import {
     getAllFoodController, 
