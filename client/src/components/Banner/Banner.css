@@ -1,17 +1,38 @@
 .banner {
   display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
   height: 170px;
   width: 100%;
+  background-image: url("https://img.freepik.com/premium-vector/pizza-slice-pattern-background_77417-1411.jpg?w=2000");
+  background-size: cover;
+  background-color: transparent;
+  background-position: center;
+  padding: 1rem;
+  position: relative;
   border-radius: 15px;
+}
+
+.banner::after {
+  border-radius: 15px;
+  content: "";
   background: linear-gradient(
     223.73deg,
-    rgba(4, 4, 4, 0) 33.33%,
+    rgba(4, 4, 4, 0) 10.33%,
     #000 128.35%,
     #000 128.35%,
     #000 128.35%
   );
-  background-image: url("https://ctl.s6img.com/society6/img/BdodsB06eAlUvaTIPbrK3LHYZ9E/w_1500/coffee-mugs/swatch/~artwork,fw_4600,fh_2000,fy_-1300,iw_4600,ih_4600/s6-original-art-uploads/society6/uploads/misc/f997a63f4eee42298ae604229d6e08f3/~~/cute-happy-smiling-pizza-pattern-on-blue-background-mugs.jpg");
-  background-size: cover;
-  background-color: transparent;
-  padding: 1rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0.7;
+}
+
+.banner h1 {
+  z-index: 999;
+  font-size: 52px;
 }

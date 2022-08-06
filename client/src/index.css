@@ -7,6 +7,10 @@
   font-family: "Open Sans", sans-serif;
 }
 
+body {
+  background: #f7f7f7;
+}
+
 /* VARIABLES */
 :root {
   --accent-color: #fd6f0a;
