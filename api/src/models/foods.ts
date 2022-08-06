@@ -5,6 +5,7 @@ const FoodsSchema = new Schema({
     name: { type: String, required: true },
     cost: { type: Number, required: true },
     type: { type: String, required: true },
+    image_path: { type: String, required: true },
     nutritions: {
         calories: { type: Number, required: true },
         fat: { type: Number, required: true },

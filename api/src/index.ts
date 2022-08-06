@@ -1,5 +1,7 @@
 require('dotenv').config()
 import express from 'express'
+import fileUpload from 'express-fileupload'
+import path from 'path'
 import mongoose from 'mongoose'
 import foodsRoute from './routes/foods'
 
@@ -13,7 +15,12 @@ mongoose.connect(DATABASE_URL)
 db.on('error', (error) => console.log(error))
 db.once('open', () => console.log('connected to database'))
 
+app.use(express.static(path.join(__dirname, 'public')))
 app.use(express.json())
+app.use(fileUpload({
+    limits: { fileSize: 1048576 } // 1048576 bytes = 1 megabyte
+}))
+
 app.use('/foods', foodsRoute)
 
 app.listen(PORT, () => {
