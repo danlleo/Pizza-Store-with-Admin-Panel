@@ -14,19 +14,19 @@ const Header = () => {
         <div className="header-content__list">
           <ul>
             <li>
-              <a href="#">Pizza</a>
+              <a href="#pizza">Pizza</a>
             </li>
             <li>
-              <a href="#">Combo</a>
+              <a href="#combo">Combo</a>
             </li>
             <li>
-              <a href="#">Snacks</a>
+              <a href="#snacks">Snacks</a>
             </li>
             <li>
-              <a href="#">Drinks</a>
+              <a href="#drinks">Drinks</a>
             </li>
             <li>
-              <a href="#">Deserts</a>
+              <a href="#desserts">Desserts</a>
             </li>
           </ul>
         </div>

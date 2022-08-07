@@ -8,11 +8,11 @@ export default function App() {
     <>
       <Header />
       <Banner />
-      <DishContainer />
-      <DishContainer />
-      <DishContainer />
-      <DishContainer />
-      <DishContainer />
+      <DishContainer container_id={"pizza"} data={[]} />
+      <DishContainer container_id={"combo"} data={[]} />
+      <DishContainer container_id={"snacks"} data={[]} />
+      <DishContainer container_id={"drinks"} data={[]} />
+      <DishContainer container_id={"desserts"} data={[]} />
       <Footer />
     </>
   );
