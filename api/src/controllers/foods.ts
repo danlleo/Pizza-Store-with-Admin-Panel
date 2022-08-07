@@ -4,7 +4,6 @@ import { v4 as uuidv4 } from 'uuid'
 import { unlinkSync } from 'fs'
 import Foods from '../models/foods'
 
-
 const MESSAGE_DELETED = 'Deleted Successfully.'
 const FOLDER_PATH = path.join(__dirname, '..', 'public', 'foods')
 const FOOD_IMAGES_PATH = path.join(FOLDER_PATH, 'images')
@@ -23,7 +22,7 @@ export async function getOneFoodController(req: Request, res: any){
 }
 
 export async function createFoodController(req: any, res: any){
-    const {name, title, cost, type, nutritions, calories, fat, sugar, salt} = req.body
+    const {name, title, cost, nutritions, calories, fat, sugar, salt} = req.body
     const {image} = req.files
 
     const fileName = `${uuidv4()}${path.extname(image.name)}`
@@ -31,8 +30,9 @@ export async function createFoodController(req: any, res: any){
     const food = new Foods({
         name: name || title,
         cost: cost,
-        type: type,
+        type: res.foodType._id,
         image_path: fileName,
+        made_at: new Date(),
         nutritions: nutritions || {
             calories: calories,
             fat: fat,
