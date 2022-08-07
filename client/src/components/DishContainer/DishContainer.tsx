@@ -1,9 +1,14 @@
 import DishItem from "../DishItem/DishItem";
 import "./DishContainer.css";
 
-const DishContainer = () => {
+interface Props {
+  container_id: string;
+  data: [];
+}
+
+const DishContainer = ({ container_id, data }: Props) => {
   return (
-    <div className="dishContainer w-1560">
+    <div className="dishContainer w-1560" id={container_id}>
       <h1>Pizza</h1>
       <div className="dishContainer-list">
         <DishItem />
