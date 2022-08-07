@@ -11,7 +11,7 @@
 }
 
 .dishItem:hover {
-  transform: translateY(-10px);
+  transform: scale(1.05);
 }
 
 .dishItem-about__name {
