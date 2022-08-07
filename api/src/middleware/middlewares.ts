@@ -20,7 +20,7 @@ export async function getFoodTypeById(req: Request, res: any, next: NextFunction
 export async function getFoodTypeByName(req: any, res: any, next: NextFunction) {
     let foodType
     try {
-        foodType = await FoodTypes.findOne({name: req.body.type})
+        foodType = await FoodTypes.findOne({type: req.body.type})
         if (foodType === null) return res.status(404).json({ message: MESSAGE_CANNOT_FIND_TYPE })
     } catch (e: any) {
         return res.status(500).json({ message: e.message })

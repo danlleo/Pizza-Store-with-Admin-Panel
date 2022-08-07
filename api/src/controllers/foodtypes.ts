@@ -17,10 +17,10 @@ export async function getOneFoodTypeController(req: Request, res: any){
 }
 
 export async function createFoodTypeController(req: any, res: any){
-    const {name} = req.body
+    const {type} = req.body
 
     const foodType = new FoodTypes({
-       name: name
+        type: type
     })
 
     try {
@@ -32,9 +32,9 @@ export async function createFoodTypeController(req: any, res: any){
 }
 
 export async function patchFoodTypeController(req: any, res: any){
-    const {name} = req.body
+    const {type} = req.body
 
-    res.foodtype.type = name
+    res.foodtype.type = type
     
     try {
         const updatedFood = await res.food.save()
