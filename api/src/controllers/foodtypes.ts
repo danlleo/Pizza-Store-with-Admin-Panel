@@ -20,7 +20,8 @@ export async function createFoodTypeController(req: any, res: any){
     const {type} = req.body
 
     const foodType = new FoodTypes({
-        type: type
+        type: type,
+        created_at: new Date()
     })
 
     try {
@@ -35,6 +36,7 @@ export async function patchFoodTypeController(req: any, res: any){
     const {type} = req.body
 
     res.foodtype.type = type
+    res.foodtype.last_update = new Date()
     
     try {
         const updatedFood = await res.food.save()

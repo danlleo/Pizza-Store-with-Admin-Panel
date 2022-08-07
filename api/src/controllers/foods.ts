@@ -32,7 +32,8 @@ export async function createFoodController(req: any, res: any){
         cost: cost,
         type: res.foodType._id,
         image_path: fileName,
-        made_at: new Date(),
+        created_at: new Date(),
+        last_update: new Date(),
         nutritions: nutritions || {
             calories: calories,
             fat: fat,
@@ -54,6 +55,7 @@ export async function patchFoodController(req: any, res: any){
     const {name, title, cost, type, calories, fat, sugar, salt} = req.body
     const {image} = req.files
 
+    res.food.last_update = new Date()
     if (name !== null || title !== null) res.food.name = name || title
     if (cost !== null) res.food.cost = cost
     if (type !== null) res.food.type = res.foodType._id
