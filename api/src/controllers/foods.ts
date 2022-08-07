@@ -56,7 +56,7 @@ export async function patchFoodController(req: any, res: any){
 
     if (name !== null || title !== null) res.food.name = name || title
     if (cost !== null) res.food.cost = cost
-    if (type !== null) res.food.type = type
+    if (type !== null) res.food.type = res.foodType._id
     if (calories !== null) res.food.calories = calories
     if (fat !== null) res.food.fat = fat
     if (sugar !== null) res.food.sugar = sugar

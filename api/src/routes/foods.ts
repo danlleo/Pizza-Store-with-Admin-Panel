@@ -1,5 +1,5 @@
 import express from 'express'
-import { getFood, getFoodTypeByName } from '../middleware/middlewares'
+import { getFood, getFoodTypeByName, getFoodTypeById } from '../middleware/middlewares'
 import {
     getAllFoodController, 
     getOneFoodController, 
@@ -19,7 +19,7 @@ foodsRouter.get('/:id', getFood, getOneFoodController)
 foodsRouter.post('/', getFoodTypeByName, createFoodController)
 
 //Updating one
-foodsRouter.patch('/:id', getFood, patchFoodController)
+foodsRouter.patch('/:id', getFood, getFoodTypeByName, patchFoodController)
 
 //Deleting
 foodsRouter.delete('/:id', getFood, deleteFoodController)
