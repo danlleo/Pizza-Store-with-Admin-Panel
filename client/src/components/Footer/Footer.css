@@ -8,3 +8,7 @@
   justify-content: space-between;
   width: 100%;
 }
+
+.footer a {
+  color: #000;
+}
