@@ -33,6 +33,6 @@
 }
 
 .banner h1 {
-  z-index: 999;
+  z-index: 1;
   font-size: 52px;
 }
