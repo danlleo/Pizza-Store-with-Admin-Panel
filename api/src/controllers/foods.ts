@@ -61,10 +61,10 @@ export async function patchFoodController(req: any, res: any){
     if (name !== null || title !== null) res.food.name = name || title
     if (cost !== null) res.food.cost = cost
     if (type !== null) res.food.type = res.foodType._id
-    if (calories !== null) res.food.calories = calories
-    if (fat !== null) res.food.fat = fat
-    if (sugar !== null) res.food.sugar = sugar
-    if (salt !== null) res.food.salt = salt
+    if (calories !== null) res.food.nutritions.calories = calories
+    if (fat !== null) res.food.nutritions.fat = fat
+    if (sugar !== null) res.food.nutritions.sugar = sugar
+    if (salt !== null) res.food.nutritions.salt = salt
     if (image !== null) {
         const fileName = `${res.food._id}${path.extname(image.name)}`
         unlinkSync(path.resolve(FOOD_IMAGES_PATH, res.food.image_path))
