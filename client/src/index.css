@@ -25,9 +25,47 @@ a {
 }
 
 /* BASIC STYLES */
-
 .clap-width {
   max-width: 1320px;
   margin: 0 auto;
   padding: 0 2rem;
+}
+
+/* PAGE STYLES */
+.input-field {
+  height: 40px;
+  border: 1px solid #d2d2d2;
+  border-radius: 5px;
+  outline: none;
+  padding-left: 1rem;
+  margin-bottom: 1.2rem;
+  transition: 0.2s ease-in-out;
+}
+
+.input-field:hover {
+  border: 1px solid #a6a5a5;
+}
+
+.input-submit {
+  margin-top: 1rem;
+  height: 40px;
+  border: none;
+  background: var(--accent-color);
+  font-size: 16px;
+  font-weight: 500;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 5px;
+  outline: none;
+  transition: 0.2s ease-in-out;
+}
+
+.input-submit:hover {
+  background: #de630c;
+}
+
+.auth a {
+  margin-top: 0.5rem;
+  text-align: center;
+  color: black;
 }
