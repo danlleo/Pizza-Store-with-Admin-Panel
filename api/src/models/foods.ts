@@ -13,11 +13,12 @@ const FoodsSchema = new Schema({
     cost: { type: Number, required: true, min: [0.1, "Number is too low."] },
     type: { type: Schema.Types.ObjectId, ref: 'FoodTypes', required: true },
     image_path: { type: String, required: true },
+    nutritions: NutritionsSchema,
+    ingredients: [{ body: String }],
     created_at: { type: Date, default: Date.now, required: true },
     last_update: { type: Date, default: Date.now, required: true },
-    updated_by: { type: Schema.Types.ObjectId, ref: 'Employees' },
-    created_by: { type: Schema.Types.ObjectId, ref: 'Employees' },
-    nutritions: NutritionsSchema
+    //updated_by: { type: Schema.Types.ObjectId, ref: 'Employees', required: true },
+    //created_by: { type: Schema.Types.ObjectId, ref: 'Employees', required: true }
 })
 
 const Foods = mongoose.model('Foods', FoodsSchema)

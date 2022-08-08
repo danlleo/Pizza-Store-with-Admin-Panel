@@ -1,10 +1,13 @@
 require('dotenv').config()
 import express from 'express'
+import jwt from 'jsonwebtoken'
 import fileUpload from 'express-fileupload'
 import path from 'path'
 import mongoose from 'mongoose'
+
 import foodsRoute from './routes/foods'
 import foodTypesRouter from './routes/foodtypes'
+import authRouter from './routes/auth'
 
 const app = express()
 const PORT = process.env.PORT || 27017
@@ -26,6 +29,7 @@ app.use(fileUpload({
 
 app.use('/foods', foodsRoute)
 app.use('/foodtypes', foodTypesRouter)
+app.use('/auth', authRouter)
 
 
 app.listen(PORT, () => {

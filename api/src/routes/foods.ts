@@ -1,5 +1,5 @@
 import express from 'express'
-import { getFood, getFoodTypeByName, getFoodTypeById } from '../middleware/middlewares'
+import { getFood, getFoodTypeByName } from '../middleware/middlewares'
 import {
     getAllFoodController, 
     getOneFoodController, 
