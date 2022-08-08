@@ -1,7 +1,7 @@
 import { Request, Response } from 'express'
 import path from 'path'
-import { v4 as uuidv4 } from 'uuid'
 import { unlinkSync } from 'fs'
+import mongoose from 'mongoose'
 import Foods from '../models/foods'
 
 const MESSAGE_DELETED = 'Deleted Successfully.'
@@ -25,9 +25,11 @@ export async function createFoodController(req: any, res: any){
     const {name, title, cost, nutritions, calories, fat, sugar, salt} = req.body
     const {image} = req.files
 
-    const fileName = `${uuidv4()}${path.extname(image.name)}`
+    const objectId = new mongoose.Types.ObjectId()
+    const fileName = `${objectId}${path.extname(image.name)}`
 
     const food = new Foods({
+        _id: objectId,
         name: name || title,
         cost: cost,
         type: res.foodType._id,
@@ -64,7 +66,7 @@ export async function patchFoodController(req: any, res: any){
     if (sugar !== null) res.food.sugar = sugar
     if (salt !== null) res.food.salt = salt
     if (image !== null) {
-        const fileName = `${uuidv4()}${path.extname(image.name)}`
+        const fileName = `${res.food._id}${path.extname(image.name)}`
         unlinkSync(path.resolve(FOOD_IMAGES_PATH, res.food.image_path))
         res.food.image_path = fileName
         image.mv(path.resolve(FOOD_IMAGES_PATH, fileName))
