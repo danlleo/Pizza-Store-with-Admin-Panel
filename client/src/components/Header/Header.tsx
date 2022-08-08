@@ -4,7 +4,7 @@ import Icon from "../../assets/logo.svg";
 const Header = () => {
   return (
     <div className="header">
-      <div className="header-content w-1560">
+      <div className="header-content clap-width">
         <div className="header-content__logo">
           <img src={Icon} alt="logo" />
           <div className="header-content__logo-text">

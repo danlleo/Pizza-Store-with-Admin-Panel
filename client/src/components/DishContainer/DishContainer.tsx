@@ -8,7 +8,7 @@ interface Props {
 
 const DishContainer = ({ container_id, data }: Props) => {
   return (
-    <div className="dishContainer w-1560" id={container_id}>
+    <div className="dishContainer clap-width" id={container_id}>
       <h1>Pizza</h1>
       <div className="dishContainer-list">
         <DishItem />
