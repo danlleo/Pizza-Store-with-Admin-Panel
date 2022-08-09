@@ -9,10 +9,14 @@ const Login = () => {
     e.preventDefault()
 
     await axios
-      .post('http://localhost:8080/auth/login/', {
-        email: emailRef.current?.value,
-        password: passwordRef.current?.value,
-      })
+      .post(
+        'http://localhost:8080/auth/login/',
+        {
+          email: emailRef.current?.value,
+          password: passwordRef.current?.value,
+        },
+        { withCredentials: true }
+      )
       .then((res) => {
         console.log(res)
       })
@@ -23,7 +27,7 @@ const Login = () => {
 
   return (
     <div
-      className="auth clap-width"
+      className='auth clap-width'
       style={{
         height: '650px',
         width: '400px',
@@ -42,20 +46,20 @@ const Login = () => {
         }}
       >
         <input
-          type="email"
-          placeholder="Enter email.."
-          className="input-field"
+          type='email'
+          placeholder='Enter email..'
+          className='input-field'
           ref={emailRef}
           required
         />
         <input
-          type="password"
-          placeholder="Enter password.."
-          className="input-field"
+          type='password'
+          placeholder='Enter password..'
+          className='input-field'
           ref={passwordRef}
           required
         />
-        <input type="submit" value="Login" className="input-submit" />
+        <input type='submit' value='Login' className='input-submit' />
       </form>
     </div>
   )
