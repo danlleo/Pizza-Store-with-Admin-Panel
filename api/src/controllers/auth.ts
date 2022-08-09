@@ -13,12 +13,10 @@ export async function signInController(req: any, res: any) {
   const token = jwt.sign(
     {
       id: res.employee.id,
-      email: res.employee.email,
       name: res.employee.name,
-      role: res.employee.role,
     },
     String(process.env.ACCESS_TOKEN_SECRET),
-    { expiresIn: '1h' }
+    { expiresIn: '1h', algorithm: 'HS256' }
   )
 
   res.cookie('token', token, { httpOnly: true })

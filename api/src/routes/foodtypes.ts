@@ -1,11 +1,15 @@
 import express from 'express'
-import { getFoodTypeById } from '../middleware/middlewares'
-import { 
-    getAllFoodTypesController, 
-    getOneFoodTypeController, 
-    createFoodTypeController, 
-    patchFoodTypeController, 
-    deleteFoodTypeController } from '../controllers/foodtypes'
+import {
+  cookieJwtAuthentication,
+  getFoodTypeById,
+} from '../middleware/middlewares'
+import {
+  getAllFoodTypesController,
+  getOneFoodTypeController,
+  createFoodTypeController,
+  patchFoodTypeController,
+  deleteFoodTypeController,
+} from '../controllers/foodtypes'
 
 const foodTypesRouter = express.Router()
 
@@ -16,12 +20,22 @@ foodTypesRouter.get('/', getAllFoodTypesController)
 foodTypesRouter.get('/:id', getFoodTypeById, getOneFoodTypeController)
 
 //Creating
-foodTypesRouter.post('/', createFoodTypeController)
+foodTypesRouter.post('/', cookieJwtAuthentication, createFoodTypeController)
 
 //Updating one
-foodTypesRouter.patch('/:id', getFoodTypeById, patchFoodTypeController)
+foodTypesRouter.patch(
+  '/:id',
+  cookieJwtAuthentication,
+  getFoodTypeById,
+  patchFoodTypeController
+)
 
 //Deleting
-foodTypesRouter.delete('/:id', getFoodTypeById, deleteFoodTypeController)
+foodTypesRouter.delete(
+  '/:id',
+  cookieJwtAuthentication,
+  getFoodTypeById,
+  deleteFoodTypeController
+)
 
 export default foodTypesRouter

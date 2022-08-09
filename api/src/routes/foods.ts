@@ -1,5 +1,9 @@
 import express from 'express'
-import { getFood, getFoodTypeByName } from '../middleware/middlewares'
+import {
+  cookieJwtAuthentication,
+  getFood,
+  getFoodTypeByName,
+} from '../middleware/middlewares'
 import {
   getAllFoodController,
   getOneFoodController,
@@ -17,12 +21,28 @@ foodsRouter.get('/', getAllFoodController)
 foodsRouter.get('/:id', getFood, getOneFoodController)
 
 //Creating
-foodsRouter.post('/', getFoodTypeByName, createFoodController)
+foodsRouter.post(
+  '/',
+  cookieJwtAuthentication,
+  getFoodTypeByName,
+  createFoodController
+)
 
 //Updating one
-foodsRouter.patch('/:id', getFood, getFoodTypeByName, patchFoodController)
+foodsRouter.patch(
+  '/:id',
+  cookieJwtAuthentication,
+  getFood,
+  getFoodTypeByName,
+  patchFoodController
+)
 
 //Deleting
-foodsRouter.delete('/:id', getFood, deleteFoodController)
+foodsRouter.delete(
+  '/:id',
+  cookieJwtAuthentication,
+  getFood,
+  deleteFoodController
+)
 
 export default foodsRouter
