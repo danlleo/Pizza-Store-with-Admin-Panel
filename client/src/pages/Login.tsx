@@ -5,18 +5,19 @@ const Login = () => {
   const emailRef = useRef<HTMLInputElement>(null)
   const passwordRef = useRef<HTMLInputElement>(null)
 
-  const submitHandler = async (e: any) => {
+  const submitHandler = (e: any) => {
     e.preventDefault()
 
-    await axios
+    axios
       .post(
         'http://localhost:8080/auth/login/',
         {
           email: emailRef.current?.value,
           password: passwordRef.current?.value,
-          
         },
-        { withCredentials: true }
+        {
+          withCredentials: true,
+        }
       )
       .then((res) => {
         console.log(res)
