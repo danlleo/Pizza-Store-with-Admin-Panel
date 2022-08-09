@@ -52,6 +52,10 @@
   color: var(--accent-color);
 }
 
+.header-content__list ul li a:focus {
+  color: var(--accent-color);
+}
+
 .header-content__cart button {
   padding: 0.5rem 2rem;
   border-radius: 15px;
