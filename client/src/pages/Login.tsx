@@ -1,11 +1,13 @@
 import { useRef } from 'react'
+import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 
 const Login = () => {
+  const navigate = useNavigate()
   const emailRef = useRef<HTMLInputElement>(null)
   const passwordRef = useRef<HTMLInputElement>(null)
 
-  const submitHandler = (e: any) => {
+  const SubmitHandler = (e: any) => {
     e.preventDefault()
 
     axios
@@ -20,7 +22,7 @@ const Login = () => {
         }
       )
       .then((res) => {
-        console.log(res)
+        navigate('/adminpanel', { replace: true })
       })
       .catch((err) => {
         console.log(err)
@@ -40,7 +42,7 @@ const Login = () => {
       }}
     >
       <form
-        onSubmit={submitHandler}
+        onSubmit={SubmitHandler}
         style={{
           display: 'flex',
           flexDirection: 'column',
