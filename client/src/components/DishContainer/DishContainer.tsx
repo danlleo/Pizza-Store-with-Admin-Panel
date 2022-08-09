@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 import DishItem from "../DishItem/DishItem"
 import "./DishContainer.css"
+=======
+import DishItem from '../DishItem/DishItem'
+import './DishContainer.css'
+>>>>>>> 4f40845c6499c61f67e9f42aafe2bd3be62ee510
 
 interface Props {
   container_id: string

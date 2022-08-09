@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 import Icon from "../../assets/logo.svg"
 import { Link } from "react-router-dom"
 import "./Header.css"
+=======
+import Icon from '../../assets/logo.svg'
+import { Link } from 'react-router-dom'
+import './Header.css'
+>>>>>>> 4f40845c6499c61f67e9f42aafe2bd3be62ee510
 
 const Header = () => {
   return (
@@ -8,8 +14,13 @@ const Header = () => {
       <div className='header-content clap-width'>
         <div className='header-content__logo'>
           <Link
+<<<<<<< HEAD
             to='/'
             style={{ display: "flex", alignItems: "center", color: "#000" }}
+=======
+            to="/"
+            style={{ display: 'flex', alignItems: 'center', color: '#000' }}
+>>>>>>> 4f40845c6499c61f67e9f42aafe2bd3be62ee510
           >
             <img src={Icon} alt='logo' />
             <div className='header-content__logo-text'>

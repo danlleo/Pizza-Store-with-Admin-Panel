@@ -1,11 +1,12 @@
 import express from 'express'
 import { getFood, getFoodTypeByName } from '../middleware/middlewares'
 import {
-    getAllFoodController, 
-    getOneFoodController, 
-    createFoodController, 
-    patchFoodController, 
-    deleteFoodController} from '../controllers/foods';
+  getAllFoodController,
+  getOneFoodController,
+  createFoodController,
+  patchFoodController,
+  deleteFoodController,
+} from '../controllers/foods'
 
 const foodsRouter = express.Router()
 
@@ -23,6 +24,5 @@ foodsRouter.patch('/:id', getFood, getFoodTypeByName, patchFoodController)
 
 //Deleting
 foodsRouter.delete('/:id', getFood, deleteFoodController)
-
 
 export default foodsRouter
