@@ -1,6 +1,6 @@
-import Icon from "../../assets/logo.svg";
-import { Link } from "react-router-dom";
-import "./Header.css";
+import Icon from '../../assets/logo.svg'
+import { Link } from 'react-router-dom'
+import './Header.css'
 
 const Header = () => {
   return (
@@ -9,7 +9,7 @@ const Header = () => {
         <div className="header-content__logo">
           <Link
             to="/"
-            style={{ display: "flex", alignItems: "center", color: "#000" }}
+            style={{ display: 'flex', alignItems: 'center', color: '#000' }}
           >
             <img src={Icon} alt="logo" />
             <div className="header-content__logo-text">
@@ -41,7 +41,7 @@ const Header = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header
