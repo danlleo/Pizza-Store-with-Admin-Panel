@@ -1,6 +1,6 @@
-import Banner from "../components/Banner/Banner";
-import DishContainer from "../components/DishContainer/DishContainer";
-import Footer from "../components/Footer/Footer";
+import Banner from "../components/Banner/Banner"
+import DishContainer from "../components/DishContainer/DishContainer"
+import Footer from "../components/Footer/Footer"
 
 const Home = () => {
   return (
@@ -13,7 +13,7 @@ const Home = () => {
       <DishContainer container_id={"desserts"} data={[]} />
       <Footer />
     </>
-  );
-};
+  )
+}
 
-export default Home;
+export default Home

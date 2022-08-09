@@ -1,16 +1,16 @@
-import DishItem from "../DishItem/DishItem";
-import "./DishContainer.css";
+import DishItem from "../DishItem/DishItem"
+import "./DishContainer.css"
 
 interface Props {
-  container_id: string;
-  data: [];
+  container_id: string
+  data: []
 }
 
 const DishContainer = ({ container_id, data }: Props) => {
   return (
-    <div className="dishContainer clap-width" id={container_id}>
+    <div className='dishContainer clap-width' id={container_id}>
       <h1>Pizza</h1>
-      <div className="dishContainer-list">
+      <div className='dishContainer-list'>
         <DishItem />
         <DishItem />
         <DishItem />
@@ -22,7 +22,7 @@ const DishContainer = ({ container_id, data }: Props) => {
         <DishItem />
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default DishContainer;
+export default DishContainer
