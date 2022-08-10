@@ -5,15 +5,10 @@ import Footer from './components/Footer/Footer'
 import Home from './pages/Home'
 import Login from './pages/Login'
 import { useState } from 'react'
-import { Routes, Route } from 'react-router-dom'
 
 export default function App() {
-  const [show, setShow] = useState(true);
-
   return (
     <>
-      <Header />
-      {show && <Cart />}
       <Routes>
         <Route path='/' element={<Layout />} />
         <Route path='dashboard'>
@@ -28,10 +23,12 @@ export default function App() {
 }
 
 function Layout() {
+  const [show, setShow] = useState(true)
+
   return (
     <>
       <Header />
-      <Cart />
+      {show && <Cart />}
       <Home />
       <Footer />
     </>
