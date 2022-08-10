@@ -1,9 +1,14 @@
 .cart .cart__background {
-  opacity: 1;
   position: fixed;
   inset: 0px;
-  transition: opacity 300ms ease-out 0s;
+  transition: opacity 100ms ease-out 0s;
   background: rgba(0, 0, 0, 0.64) none repeat scroll 0% 0%;
+  cursor: pointer;
+}
+
+.cart__background:hover + .cart__container > .cart__container-close,
+.cart__container > .cart__container-close:hover {
+  transform: rotate(180deg);
 }
 
 .cart .cart__container {
@@ -51,10 +56,6 @@
   cursor: pointer;
   border: none;
   transition: 0.5s ease;
-}
-
-.cart .cart__container .cart__container-close:hover {
-  transform: rotate(180deg);
 }
 
 .cart .cart__container-about {
