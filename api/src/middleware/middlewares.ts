@@ -65,7 +65,7 @@ export async function getEmployeeByEmailAndPassword(
   try {
     employee = await Employees.findOne({
       email: req.body.email,
-      password: req.body.password,
+      password: req.body.password
     })
     if (employee === null)
       return res.status(404).json({ message: MESSAGE_CANNOT_FIND_EMPLOYEE })
@@ -82,8 +82,6 @@ export async function cookieJwtAuthentication(
   next: NextFunction
 ) {
   const token = req.cookies.token
-  if (token === undefined)
-    return res.status(401).json({ message: 'Unauthorized' })
   try {
     const decoded = jwt.verify(token, String(process.env.ACCESS_TOKEN_SECRET))
     req.employee = decoded

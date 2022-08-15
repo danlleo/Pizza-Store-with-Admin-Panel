@@ -4,7 +4,7 @@ import Employees from '../models/employees'
 export async function signInController(req: any, res: any) {
   if (res.employee === null) {
     return res.json({
-      message: 'Sign in failed',
+      message: 'Sign in failed'
     })
   }
 
@@ -13,7 +13,7 @@ export async function signInController(req: any, res: any) {
   const token = jwt.sign(
     {
       id: res.employee.id,
-      name: res.employee.name,
+      name: res.employee.name
     },
     String(process.env.ACCESS_TOKEN_SECRET),
     { expiresIn: '1h', algorithm: 'HS256' }
@@ -28,14 +28,14 @@ export async function signUpController(req: any, res: any) {
   const newEmployee = new Employees({
     name: name || {
       first: first,
-      last: last,
+      last: last
     },
     email: email,
     password: password,
     phone: phone,
     home_address: home_address,
     created_at: Date.now(),
-    updated_at: Date.now(),
+    updated_at: Date.now()
   })
 
   try {
@@ -44,4 +44,9 @@ export async function signUpController(req: any, res: any) {
   } catch (error) {
     res.status(500).json(error)
   }
+}
+
+export async function signOutController(req: any, res: any) {
+  res.clearCookie('token')
+  return res.json({ message: 'Log out successful' })
 }

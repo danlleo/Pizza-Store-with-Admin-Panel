@@ -1,16 +1,26 @@
 import { useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
+import { useDispatch, useSelector } from 'react-redux'
 
-const Login = () => {
+import { setLoggedIn } from '../redux/slices/loggedInSlice'
+
+interface Props {
+  cookies: any
+}
+
+const Login = ({ cookies }: Props) => {
+  const logged = useSelector((state: any): boolean => state.loggedIn.isLoggedIn)
+  const dispatch = useDispatch()
+
   const navigate = useNavigate()
   const emailRef = useRef<HTMLInputElement>(null)
   const passwordRef = useRef<HTMLInputElement>(null)
 
-  const SubmitHandler = (e: any) => {
+  const SubmitHandler = async (e: any) => {
     e.preventDefault()
 
-    axios
+    await axios
       .post(
         'http://localhost:8080/auth/login/',
         {
@@ -22,7 +32,15 @@ const Login = () => {
         }
       )
       .then((res) => {
-        // navigate('/dashboard', { replace: true })
+        if (res.data.token) {
+          dispatch(setLoggedIn(true))
+          cookies.set('logged', true, {
+            path: '/',
+            sameSite: 'strict',
+            maxAge: 60 * 60
+          })
+          navigate('/dashboard')
+        }
       })
       .catch((err) => {
         console.log(err)
@@ -31,7 +49,7 @@ const Login = () => {
 
   return (
     <div
-      className='auth clap-width'
+      className="auth clap-width"
       style={{
         height: '650px',
         width: '400px',
@@ -50,20 +68,20 @@ const Login = () => {
         }}
       >
         <input
-          type='email'
-          placeholder='Enter email..'
-          className='input-field'
+          type="email"
+          placeholder="Enter email.."
+          className="input-field"
           ref={emailRef}
           required
         />
         <input
-          type='password'
-          placeholder='Enter password..'
-          className='input-field'
+          type="password"
+          placeholder="Enter password.."
+          className="input-field"
           ref={passwordRef}
           required
         />
-        <input type='submit' value='Login' className='input-submit' />
+        <input type="submit" value="Login" className="input-submit" />
       </form>
     </div>
   )

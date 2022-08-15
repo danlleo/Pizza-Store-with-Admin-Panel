@@ -1,14 +1,14 @@
 import express from 'express'
 import {
   cookieJwtAuthentication,
-  getFoodTypeById,
+  getFoodTypeById
 } from '../middleware/middlewares'
 import {
   getAllFoodTypesController,
   getOneFoodTypeController,
   createFoodTypeController,
   patchFoodTypeController,
-  deleteFoodTypeController,
+  deleteFoodTypeController
 } from '../controllers/foodtypes'
 
 const foodTypesRouter = express.Router()
