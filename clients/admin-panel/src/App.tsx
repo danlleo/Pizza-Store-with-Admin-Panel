@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react'
 import { Routes, Route, Navigate } from 'react-router-dom'
 import Cookies from 'universal-cookie'
 import { useSelector, useDispatch } from 'react-redux'

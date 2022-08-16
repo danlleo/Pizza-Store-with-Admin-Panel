@@ -76,6 +76,21 @@ export async function getEmployeeByEmailAndPassword(
   next()
 }
 
+// used only when employee is already found
+export async function updateEmployeeLastSeen(
+  req: Request,
+  res: any,
+  next: NextFunction
+) {
+  try {
+    res.employee.last_seen = new Date()
+    await res.employee.save({ validateBeforeSave: false })
+  } catch (e: any) {
+    return res.status(500).json({ message: e.message })
+  }
+  next()
+}
+
 export async function cookieJwtAuthentication(
   req: any,
   res: any,

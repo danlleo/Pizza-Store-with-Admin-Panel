@@ -1,6 +1,9 @@
 import express from 'express'
 import cors from 'cors'
-import { getEmployeeByEmailAndPassword } from '../middleware/middlewares'
+import {
+  getEmployeeByEmailAndPassword,
+  updateEmployeeLastSeen
+} from '../middleware/middlewares'
 import {
   signInController,
   signUpController,
@@ -10,7 +13,12 @@ import {
 const authRouter = express.Router()
 
 //Sign in
-authRouter.post('/login', getEmployeeByEmailAndPassword, signInController)
+authRouter.post(
+  '/login',
+  getEmployeeByEmailAndPassword,
+  updateEmployeeLastSeen,
+  signInController
+)
 
 //Sign up
 authRouter.post('/register', signUpController)
