@@ -1,0 +1,33 @@
+.food-types__container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: fit-content;
+  margin: 1rem;
+  padding: 1rem;
+}
+
+.food-types__item {
+  display: flex;
+  flex-direction: column;
+}
+
+.food-types__item:not(:first-child) {
+  margin-left: 1rem;
+}
+
+.food-types__form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.border-gradient {
+  border: 1px solid;
+  border-radius: 1rem;
+  border-image-slice: 1;
+}
+
+.border-gradient-red {
+  border-image-source: linear-gradient(to right, #ff0000, #ff0095);
+}

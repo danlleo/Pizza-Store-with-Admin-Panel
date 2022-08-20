@@ -16,25 +16,17 @@ export default () => {
     <>
       {logged ? (
         <Routes>
-          <Route path="/" element={<Layout />}>
-            <Route path="login" element={<Navigate to="/dashboard" />} />
-            <Route path="*" element={<Navigate to="/dashboard" />} />
+          <Route path='/' element={<Dashboard />}>
+            <Route path='login' element={<Navigate to='/dashboard' />} />
+            <Route path='*' element={<Navigate to='/dashboard' />} />
           </Route>
         </Routes>
       ) : (
         <Routes>
-          <Route path="login" element={<Login cookies={cookies} />} />
-          <Route path="*" element={<Navigate to="/login" />} />
+          <Route path='login' element={<Login cookies={cookies} />} />
+          <Route path='*' element={<Navigate to='/login' />} />
         </Routes>
       )}
-    </>
-  )
-}
-
-const Layout = () => {
-  return (
-    <>
-      <Dashboard />
     </>
   )
 }

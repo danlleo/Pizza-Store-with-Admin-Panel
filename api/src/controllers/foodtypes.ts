@@ -21,14 +21,14 @@ export async function createFoodTypeController(req: any, res: any) {
 
   const foodType = new FoodTypes({
     type: type,
-    created_at: new Date(),
+    created_at: new Date()
   })
 
   try {
     const newFood = await foodType.save()
     res.status(201).json(newFood)
   } catch (e: any) {
-    res.status(400).json({ message: e.message })
+    res.status(400).json(e)
   }
 }
 
@@ -47,8 +47,8 @@ export async function patchFoodTypeController(req: any, res: any) {
 
 export async function deleteFoodTypeController(req: Request, res: any) {
   try {
-    await res.foodtype.remove()
-    res.json({ message: MESSAGE_DELETED })
+    await res.foodType.remove()
+    res.json({ message: MESSAGE_DELETED, type: res.foodType.type })
   } catch (e: any) {
     res.status(500).json({ message: e.message })
   }

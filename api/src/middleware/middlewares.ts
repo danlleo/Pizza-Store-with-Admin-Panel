@@ -31,8 +31,13 @@ export async function getFoodTypeByName(
   next: NextFunction
 ) {
   let foodType
+
   try {
-    foodType = await FoodTypes.findOne({ type: req.body.type })
+    if (req.params.type) {
+      foodType = await FoodTypes.findOne({ type: req.params.type })
+    } else {
+      foodType = await FoodTypes.findOne({ type: req.body.type })
+    }
     if (foodType === null)
       return res.status(404).json({ message: MESSAGE_CANNOT_FIND_TYPE })
   } catch (e: any) {
@@ -99,6 +104,8 @@ export async function cookieJwtAuthentication(
   const token = req.cookies.token
   try {
     const decoded = jwt.verify(token, String(process.env.ACCESS_TOKEN_SECRET))
+    console.log('token verified')
+
     req.employee = decoded
     next()
   } catch (e: any) {

@@ -10,7 +10,11 @@ const NutritionsSchema = new Schema({
 
 const FoodsSchema = new Schema({
   name: { type: String, required: true, unique: true },
-  price: { type: Number, required: true, min: [0.1, 'Number is too low.'] },
+  price: { type: Number, required: true, min: [0.1, 'Number is too low.'] } || {
+    small: { type: Number, required: false, min: [0.1, 'Number is too low.'] },
+    medium: { type: Number, required: true, min: [0.1, 'Number is too low.'] },
+    large: { type: Number, required: true, min: [0.1, 'Number is too low.'] }
+  },
   type: { type: Schema.Types.ObjectId, ref: 'FoodTypes', required: true },
   image_path: { type: String, required: true },
   nutritions: NutritionsSchema,
