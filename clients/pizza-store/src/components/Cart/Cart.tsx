@@ -1,13 +1,23 @@
+import { useDispatch } from 'react-redux'
+import { close } from '../../store/cart/CartSlice'
 import './Cart.css'
 
 export default () => {
+  const dispatch = useDispatch()
+
   return (
     <div style={{ zIndex: '1000', position: 'relative' }}>
       <div className='cart'>
-        <div className='cart__background'></div>
+        <div
+          className='cart__background'
+          onClick={() => dispatch(close())}
+        ></div>
         <div className='cart__container'>
           <div className='cart__container-area'>
-            <button className='cart__container-close'>
+            <button
+              className='cart__container-close'
+              onClick={() => dispatch(close())}
+            >
               <svg viewBox='0 0 24 24' fill='none'>
                 <path
                   fillRule='evenodd'
@@ -28,7 +38,7 @@ export default () => {
               Your cart is empty, please, choose something you like, and it will
               appear here!
             </p>
-            <button>Menu</button>
+            <button onClick={() => dispatch(close())}>Menu</button>
           </div>
         </div>
       </div>

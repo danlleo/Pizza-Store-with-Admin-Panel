@@ -1,7 +1,11 @@
 import Icon from '../../assets/logo.svg'
+import { useDispatch } from 'react-redux'
+import { open } from '../../store/cart/CartSlice'
 import './Header.css'
 
 export default () => {
+  const dispatch = useDispatch()
+
   return (
     <div className='header'>
       <div className='header-content clap-width'>
@@ -33,7 +37,7 @@ export default () => {
           </ul>
         </div>
         <div className='header-content__cart'>
-          <button>Cart</button>
+          <button onClick={() => dispatch(open())}>Cart</button>
         </div>
       </div>
     </div>

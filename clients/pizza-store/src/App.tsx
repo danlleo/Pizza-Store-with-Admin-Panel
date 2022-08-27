@@ -2,15 +2,16 @@ import Header from './components/Header/Header'
 import Cart from './components/Cart/Cart'
 import Footer from './components/Footer/Footer'
 import Home from './pages/Home'
-import { useState } from 'react'
+import { useSelector } from 'react-redux'
+import { selectCart } from './store'
 
 export default () => {
-  const [show, setShow] = useState(true)
+  const isOpen = useSelector(selectCart)
 
   return (
     <>
+      {isOpen && <Cart />}
       <Header />
-      {show && <Cart />}
       <Home />
       <Footer />
     </>
