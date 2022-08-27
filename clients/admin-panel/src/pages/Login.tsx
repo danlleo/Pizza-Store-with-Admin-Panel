@@ -51,7 +51,7 @@ const Login = ({ cookies }: Props) => {
     <div
       className='auth clap-width'
       style={{
-        height: '650px',
+        minHeight: '100vh',
         width: '400px',
         marginTop: '2rem',
         display: 'flex',
