@@ -13,7 +13,10 @@ export default () => {
           onClick={() => dispatch(close())}
         ></div>
         <div className='cart__container'>
-          <div className='cart__container-area'>
+          <div
+            className='cart__container-area'
+            onClick={() => dispatch(close())}
+          >
             <button
               className='cart__container-close'
               onClick={() => dispatch(close())}
