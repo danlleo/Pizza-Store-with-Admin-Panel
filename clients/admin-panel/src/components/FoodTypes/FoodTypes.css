@@ -1,33 +1,26 @@
 .food-types__container {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  width: fit-content;
-  margin: 1rem;
-  padding: 1rem;
-}
-
-.food-types__item {
-  display: flex;
   flex-direction: column;
+  color: #fff;
 }
 
-.food-types__item:not(:first-child) {
-  margin-left: 1rem;
+td,
+th {
+  padding: 8px;
+  padding: 0.5rem;
 }
 
-.food-types__form {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
+th {
+  text-align: left;
+  font-weight: 300;
+  font-size: 20px;
+  font-size: 1.25rem;
 }
 
-.border-gradient {
-  border: 1px solid;
-  border-radius: 1rem;
-  border-image-slice: 1;
+td {
+  font-family: 'Avenir Next', 'Segoe UI', 'Lucida Grande', sans-serif;
 }
 
-.border-gradient-red {
-  border-image-source: linear-gradient(to right, #ff0000, #ff0095);
+.table__heading {
+  border-bottom: 2px solid #66f2ff;
 }

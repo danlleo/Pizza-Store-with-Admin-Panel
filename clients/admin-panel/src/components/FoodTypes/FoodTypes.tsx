@@ -1,16 +1,23 @@
-import { useEffect, useRef, useState } from 'react'
 import axios from 'axios'
 import Cookies from 'universal-cookie'
-import { useDispatch, useSelector } from 'react-redux'
 
+import { useDispatch, useSelector } from 'react-redux'
+import { useEffect, useRef, useState } from 'react'
 import { setLoggedIn } from '../../redux/slices/loggedInSlice'
+
 import './FoodTypes.css'
 
 export default () => {
-  const logged = useSelector((state: any): boolean => state.loggedIn.isLoggedIn)
+  const logged = useSelector((state: any): boolean => state.loggedIn.isLoggedIn) // DON'T FORGET, NIGGER
+
   const dispatch = useDispatch()
   const coookies = new Cookies()
-  const [foodTypes, setFoodTypes] = useState<any[]>([])
+  const [foodTypes, setFoodTypes] = useState<any[]>([
+    'Pizza',
+    'Combos',
+    'Deserts',
+    'Drinks'
+  ])
   const [addFoodTypeError, setAddFoodTypeError] = useState<string>('')
   const [removeFoodTypeError, setRemoveFoodTypeError] = useState<string>('')
 
@@ -77,22 +84,71 @@ export default () => {
 
   return (
     <>
-      <h1>Food Types</h1>
-      <div className='food-types__container border-gradient border-gradient-red'>
-        <div className='food-types__item'>
-          <div className='food-types__title'>
-            <p>All food types</p>
-          </div>
-          <div className='food-types__info'>
-            {foodTypes.map((foodType) => (
-              <div className='food-types__info--item' key={foodType?._id}>
-                <p>{foodType?.type}</p>
-              </div>
-            ))}
-          </div>
-        </div>
+      <div className='food-types__container'>
+        <table className='table'>
+          <tr>
+            <th className='table__heading'>ID</th>
+            <th className='table__heading'>Food Type</th>
+            <th className='table__heading'>Food Name</th>
+            <th className='table__heading'>Price</th>
+            <th className='table__heading'>Calories</th>
+            <th className='table__heading'>Amount Left</th>
+            <th className='table__heading'>Discount</th>
+          </tr>
+          <tr className='table__row'>
+            <td className='table__content'>1</td>
+            <td className='table__content'>Pizza</td>
+            <td className='table__content'>Pepperoni</td>
+            <td className='table__content'>12$</td>
+            <td className='table__content'>1245</td>
+            <td className='table__content'>54</td>
+            <td className='table__content'>2$</td>
+          </tr>
+          <tr className='table__row'>
+            <td className='table__content'>1</td>
+            <td className='table__content'>Pizza</td>
+            <td className='table__content'>Pepperoni</td>
+            <td className='table__content'>12$</td>
+            <td className='table__content'>1245</td>
+            <td className='table__content'>54</td>
+            <td className='table__content'>2$</td>
+          </tr>
+          <tr className='table__row'>
+            <td className='table__content'>1</td>
+            <td className='table__content'>Pizza</td>
+            <td className='table__content'>Pepperoni</td>
+            <td className='table__content'>12$</td>
+            <td className='table__content'>1245</td>
+            <td className='table__content'>54</td>
+            <td className='table__content'>2$</td>
+          </tr>
+          <tr className='table__row'>
+            <td className='table__content'>1</td>
+            <td className='table__content'>Pizza</td>
+            <td className='table__content'>Pepperoni</td>
+            <td className='table__content'>12$</td>
+            <td className='table__content'>1245</td>
+            <td className='table__content'>54</td>
+            <td className='table__content'>2$</td>
+          </tr>
+          <tr className='table__row'>
+            <td className='table__content'>1</td>
+            <td className='table__content'>Pizza</td>
+            <td className='table__content'>Pepperoni</td>
+            <td className='table__content'>12$</td>
+            <td className='table__content'>1245</td>
+            <td className='table__content'>54</td>
+            <td className='table__content'>2$</td>
+          </tr>
+        </table>
 
-        <div className='food-types__item'>
+        {/* {foodTypes.map((foodType) => (
+              <div className='food-types__info--item' key={foodType?._id}>
+                <p>{foodType}</p>
+              </div>
+            ))} */}
+
+        {/* <div className='food-types__item'>
           <div className='food-types__title'>
             <p>Add Food Type</p>
           </div>
@@ -117,7 +173,7 @@ export default () => {
             </button>
             {removeFoodTypeError && <p>{removeFoodTypeError}</p>}
           </div>
-        </div>
+        </div> */}
       </div>
     </>
   )

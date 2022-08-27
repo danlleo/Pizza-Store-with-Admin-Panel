@@ -1,10 +1,9 @@
-import { Routes, Route, Navigate } from 'react-router-dom'
 import Cookies from 'universal-cookie'
-import { useSelector, useDispatch } from 'react-redux'
-
-import { setLoggedIn } from './redux/slices/loggedInSlice'
 import Login from './pages/Login'
 import Dashboard from './pages/Dashboard'
+import { Routes, Route, Navigate } from 'react-router-dom'
+import { useSelector, useDispatch } from 'react-redux'
+import { setLoggedIn } from './redux/slices/loggedInSlice'
 
 export default () => {
   const logged = useSelector((state: any): boolean => state.loggedIn.isLoggedIn)

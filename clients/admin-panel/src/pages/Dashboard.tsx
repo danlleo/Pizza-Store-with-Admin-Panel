@@ -36,13 +36,29 @@ export default () => {
   return (
     <div
       style={{
-        backgroundColor: '#363636',
-        color: '#eeeeee',
-        minHeight: '100vh'
+        minHeight: '100vh',
+        maxWidth: '1270px',
+        display: 'flex',
+        flexDirection: 'column',
+        margin: '0 auto'
       }}
     >
-      <h1>Admin panel</h1>
-      <button onClick={signOut}>Sign Out</button>
+      <div className='header'>
+        <h2 style={{ letterSpacing: '4px' }}>Admin Panel</h2>
+        <button
+          onClick={signOut}
+          style={{
+            border: 'none',
+            background: 'transparent',
+            color: '#fff',
+            fontSize: '16px',
+            letterSpacing: '1px',
+            cursor: 'pointer'
+          }}
+        >
+          Sign Out
+        </button>
+      </div>
       <FoodTypes />
     </div>
   )
