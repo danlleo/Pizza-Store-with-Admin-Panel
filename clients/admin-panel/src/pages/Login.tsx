@@ -1,7 +1,7 @@
 import { useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
-import axios from 'axios'
 import { useDispatch, useSelector } from 'react-redux'
+import axios from 'axios'
 
 import { setLoggedIn } from '../redux/slices/loggedInSlice'
 
@@ -49,16 +49,29 @@ const Login = ({ cookies }: Props) => {
 
   return (
     <div
-      className="auth clap-width"
+      className='auth clap-width'
       style={{
         height: '650px',
         width: '400px',
         marginTop: '2rem',
         display: 'flex',
+        flexDirection: 'column',
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        margin: '0 auto'
       }}
     >
+      <h1
+        style={{
+          alignSelf: 'flex-start',
+          color: '#fff',
+          marginBottom: '2rem',
+          fontWeight: '400',
+          fontSize: '42px'
+        }}
+      >
+        Log In
+      </h1>
       <form
         onSubmit={SubmitHandler}
         style={{
@@ -68,20 +81,55 @@ const Login = ({ cookies }: Props) => {
         }}
       >
         <input
-          type="email"
-          placeholder="Enter email.."
-          className="input-field"
+          type='email'
+          placeholder='Enter email..'
+          className='input-field'
           ref={emailRef}
+          style={{
+            borderRadius: '5px',
+            border: 'none',
+            background: 'rgba(0,0,0,.3)',
+            padding: '0 20px',
+            outline: 'none',
+            marginBottom: '20px',
+            color: '#fff',
+            height: '50px',
+            fontSize: '18px'
+          }}
           required
         />
         <input
-          type="password"
-          placeholder="Enter password.."
-          className="input-field"
+          type='password'
+          placeholder='Enter password..'
+          className='input-field'
           ref={passwordRef}
+          style={{
+            borderRadius: '5px',
+            border: 'none',
+            background: 'rgba(0,0,0,.3)',
+            padding: '0 20px',
+            outline: 'none',
+            marginBottom: '20px',
+            color: '#fff',
+            height: '50px',
+            fontSize: '18px'
+          }}
           required
         />
-        <input type="submit" value="Login" className="input-submit" />
+        <input
+          type='submit'
+          value='Log In'
+          className='input-submit'
+          style={{
+            border: 'none',
+            borderRadius: '5px',
+            height: '50px',
+            padding: '0 20px',
+            boxShadow: '0 0 20px 0 hsla(0,0%,100%,.2)',
+            cursor: 'pointer',
+            fontSize: '18px'
+          }}
+        />
       </form>
     </div>
   )
