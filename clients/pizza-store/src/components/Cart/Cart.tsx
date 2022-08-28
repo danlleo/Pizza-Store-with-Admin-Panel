@@ -1,8 +1,11 @@
-import { useDispatch } from 'react-redux'
+import CartItem from './CartItem'
+import { useDispatch, useSelector } from 'react-redux'
 import { close } from '../../store/cart/CartSlice'
+import { selectCartList } from '../../store'
 import './Cart.css'
 
 export default () => {
+  const cartList = useSelector(selectCartList)
   const dispatch = useDispatch()
 
   return (
@@ -31,18 +34,26 @@ export default () => {
               </svg>
             </button>
           </div>
-          <div className='cart__container-about'>
-            <img
-              src='https://cdn.dodostatic.net/site-static/dist/121df529925b0f43cc73.svg'
-              alt='empty'
-            />
-            <h2>Oh no, it&rsquo;s empty!</h2>
-            <p>
-              Your cart is empty, please, choose something you like, and it will
-              appear here!
-            </p>
-            <button onClick={() => dispatch(close())}>Menu</button>
-          </div>
+          {cartList.length ? (
+            <>
+              {cartList.map((item) => (
+                <CartItem key={item.amount} />
+              ))}
+            </>
+          ) : (
+            <div className='cartnone__container-about'>
+              <img
+                src='https://cdn.dodostatic.net/site-static/dist/121df529925b0f43cc73.svg'
+                alt='empty'
+              />
+              <h2>Oh no, it&rsquo;s empty!</h2>
+              <p>
+                Your cart is empty, please, choose something you like, and it
+                will appear here!
+              </p>
+              <button onClick={() => dispatch(close())}>Menu</button>
+            </div>
+          )}
         </div>
       </div>
     </div>
