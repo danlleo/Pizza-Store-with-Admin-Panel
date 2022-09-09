@@ -1,5 +1,12 @@
 import './CartItem.css'
 
+interface ICartItem {
+  name: string
+  description: string
+  price: number
+  amount: number
+}
+
 const CartItem = () => {
   return (
     <div className='cartItem'>
