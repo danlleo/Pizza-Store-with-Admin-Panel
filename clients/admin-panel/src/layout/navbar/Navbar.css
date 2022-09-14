@@ -1,0 +1,59 @@
+.navbar {
+  width: 400px;
+  height: 100%;
+  border-right: 1px solid #ebebeb;
+  padding: 3rem;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.navbar .navbar__logo {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.navbar .navbar__logo img {
+  width: 50px;
+  margin-right: 1rem;
+}
+
+.navbar .navbar__logo h2 {
+  letter-spacing: 1px;
+}
+
+.navbar .navbar__links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+}
+
+.navbar .navbar__links a {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 1rem;
+}
+
+.navbar .navbar__links a.selected {
+  font-weight: bold;
+}
+
+.navbar .navbar__links a svg {
+  height: 25px;
+  margin-right: 1.5rem;
+}
+
+.navbar .navbar__logout {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.navbar .navbar__logout svg {
+  height: 25px;
+  margin-right: 1rem;
+}

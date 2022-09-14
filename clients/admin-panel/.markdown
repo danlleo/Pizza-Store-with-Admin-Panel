@@ -1,0 +1,13 @@
+**FEATURES**
+1. Ability to add category
+2. Ability to add items:
+    2.1 Name
+    2.2 Description
+    2.3 Price
+    2.4 Sizes
+3. Ability to remove category
+4. Ability to remove items
+
+**ADDITIONAL REQUIREMENTS**
+1. Login with JWT
+2. Mongo DB
