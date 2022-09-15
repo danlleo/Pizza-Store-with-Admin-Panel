@@ -11,7 +11,7 @@ Fetch all or one by id
 
 ### Post
 
-All requires to be logged, except `/auth/login` and `/orders`
+All requires to be logged in, except `/auth/login` and `/orders`
 * `/foods`
 * `/foodtypes`
 * `/orders` - **not requires** to be logged
