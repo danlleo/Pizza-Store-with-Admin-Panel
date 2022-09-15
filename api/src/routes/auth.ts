@@ -1,8 +1,8 @@
 import express from 'express'
-import cors from 'cors'
 import {
   getEmployeeByEmailAndPassword,
-  updateEmployeeLastSeen
+  updateEmployeeLastSeen,
+  cookieJwtAuthentication
 } from '../middleware/middlewares'
 import {
   signInController,
@@ -21,7 +21,7 @@ authRouter.post(
 )
 
 //Sign up
-authRouter.post('/register', signUpController)
+authRouter.post('/register', cookieJwtAuthentication, signUpController)
 
 //Sign out
 authRouter.post('/logout', signOutController)

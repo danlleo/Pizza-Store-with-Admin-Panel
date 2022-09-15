@@ -2,14 +2,14 @@ import express from 'express'
 import {
   cookieJwtAuthentication,
   getFood,
-  getFoodTypeByName,
+  getFoodTypeByName
 } from '../middleware/middlewares'
 import {
   getAllFoodController,
   getOneFoodController,
   createFoodController,
   patchFoodController,
-  deleteFoodController,
+  deleteFoodController
 } from '../controllers/foods'
 
 const foodsRouter = express.Router()
@@ -23,7 +23,7 @@ foodsRouter.get('/:id', getFood, getOneFoodController)
 //Creating
 foodsRouter.post(
   '/',
-  cookieJwtAuthentication,
+  // cookieJwtAuthentication,
   getFoodTypeByName,
   createFoodController
 )
