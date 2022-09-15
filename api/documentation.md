@@ -1,7 +1,9 @@
+
+## Initial start / build
 - "yarn dev" to run index.js
 - "yarn build" to build index.js
 
-## requests
+## Requests
 ### Get
 
 Fetch all or one by id 
