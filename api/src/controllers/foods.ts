@@ -22,31 +22,35 @@ export async function getOneFoodController(req: Request, res: any) {
 }
 
 export async function createFoodController(req: any, res: any) {
-  const { name, title, cost, nutritions, calories, fat, sugar, salt } = req.body
-  const { image } = req.files
+  const { name, title, nutritions, calories, fat, sugar, salt, price } =
+    req.body
+  const { image } = req.files || {}
 
   const objectId = new mongoose.Types.ObjectId()
-  const fileName = `${objectId}${path.extname(image.name)}`
+  let fileName = ''
+  if (image !== undefined) {
+    fileName = `${objectId}${path.extname(image.name)}`
+  }
 
   const food = new Foods({
     _id: objectId,
     name: name || title,
-    cost: cost,
+    price,
     type: res.foodType._id,
     image_path: fileName,
     created_at: new Date(),
     last_update: new Date(),
     nutritions: nutritions || {
-      calories: calories,
-      fat: fat,
-      sugar: sugar,
-      salt: salt,
-    },
+      calories,
+      fat,
+      sugar,
+      salt
+    }
   })
 
   try {
     const newFood = await food.save()
-    image.mv(path.resolve(FOOD_IMAGES_PATH, fileName))
+    if (image !== undefined) image.mv(path.resolve(FOOD_IMAGES_PATH, fileName))
     res.status(201).json(newFood)
   } catch (e: any) {
     res.status(400).json({ message: e.message })
@@ -55,7 +59,7 @@ export async function createFoodController(req: any, res: any) {
 
 export async function patchFoodController(req: any, res: any) {
   const { name, title, cost, type, calories, fat, sugar, salt } = req.body
-  const { image } = req.files
+  const { image } = req.files || {}
 
   res.food.last_update = new Date()
   if (name !== null || title !== null) res.food.name = name || title
@@ -65,7 +69,7 @@ export async function patchFoodController(req: any, res: any) {
   if (fat !== null) res.food.nutritions.fat = fat
   if (sugar !== null) res.food.nutritions.sugar = sugar
   if (salt !== null) res.food.nutritions.salt = salt
-  if (image !== null) {
+  if (image !== undefined) {
     const fileName = `${res.food._id}${path.extname(image.name)}`
     unlinkSync(path.resolve(FOOD_IMAGES_PATH, res.food.image_path))
     res.food.image_path = fileName

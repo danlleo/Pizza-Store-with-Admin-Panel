@@ -10,18 +10,19 @@ const OrdersSchema = new Schema({
     required: true,
     enum: ORDER_STATUSES
   },
-  food_name: { type: Schema.Types.ObjectId, ref: 'Foods', required: true },
-  food_type: { type: Schema.Types.ObjectId, ref: 'FoodTypes', required: true },
-  changed_ingredients: {
-    remove: [
-      { type: Schema.Types.ObjectId, ref: 'Ingredients', required: false }
-    ],
-    add: [{ type: Schema.Types.ObjectId, ref: 'Ingredients', required: false }],
-    ingredients_price: { type: Number, required: false }
-  },
-  food_price: { type: Number, required: true },
+  foods: [
+    {
+      id: { type: Schema.Types.ObjectId, ref: 'Foods', required: true },
+      name: { type: String, required: true },
+      // typeId: { type: Schema.Types.ObjectId, ref: 'FoodTypes', required: true },
+      size: { type: String, required: false },
+      price: { type: Number, required: true }
+    }
+  ],
+
+  order_price: { type: Number, required: true },
   customer_name: { type: String, required: true },
-  phone_number: { type: Number, required: true },
+  phone: { type: Number, required: true },
   address: { type: String, required: true },
   created_at: { type: Date, default: Date.now, required: true }
 })

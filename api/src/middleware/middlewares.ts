@@ -2,10 +2,12 @@ import { Request, NextFunction } from 'express'
 import jwt from 'jsonwebtoken'
 import FoodTypes from '../models/foodtypes'
 import Foods from '../models/foods'
+import Orders from '../models/orders'
 import Employees from '../models/employees'
 
 const MESSAGE_CANNOT_FIND_TYPE = 'Cannot find food type.'
 const MESSAGE_CANNOT_FIND_FOOD = 'Cannot find food.'
+const MESSAGE_CANNOT_FIND_ORDER = 'Cannot find food type.'
 const MESSAGE_CANNOT_FIND_EMPLOYEE = 'Cannot find employee.'
 
 export async function getFoodTypeById(
@@ -19,9 +21,22 @@ export async function getFoodTypeById(
     if (foodType === null)
       return res.status(404).json({ message: MESSAGE_CANNOT_FIND_TYPE })
   } catch (e: any) {
-    return res.status(500).json({ message: e.message })
+    return res.status(500).json(e)
   }
   res.foodType = foodType
+  next()
+}
+
+export async function getOrderById(req: Request, res: any, next: NextFunction) {
+  let order
+  try {
+    order = await Orders.findById(req.params.id)
+    if (order === null)
+      return res.status(404).json({ message: MESSAGE_CANNOT_FIND_ORDER })
+  } catch (e: any) {
+    return res.status(500).json(e)
+  }
+  res.order = order
   next()
 }
 
@@ -41,7 +56,7 @@ export async function getFoodTypeByName(
     if (foodType === null)
       return res.status(404).json({ message: MESSAGE_CANNOT_FIND_TYPE })
   } catch (e: any) {
-    return res.status(500).json({ message: e.message })
+    return res.status(500).json(e)
   }
   res.foodType = foodType
   next()
@@ -55,9 +70,32 @@ export async function getFood(req: Request, res: any, next: NextFunction) {
     if (food === null)
       return res.status(404).json({ message: MESSAGE_CANNOT_FIND_FOOD })
   } catch (e: any) {
-    return res.status(500).json({ message: e.message })
+    return res.status(500).json(e)
   }
   res.food = food
+  next()
+}
+
+export async function getFoodsByName(req: any, res: any, next: NextFunction) {
+  let foods
+
+  let foodNames = req.body.foods.map((food: { name: String }) => {
+    return food.name
+  })
+
+  try {
+    foods = await Foods.find({
+      name: {
+        $in: foodNames
+      }
+    })
+
+    if (foods === null)
+      return res.status(404).json({ message: MESSAGE_CANNOT_FIND_FOOD })
+  } catch (e: any) {
+    return res.status(500).json(e)
+  }
+  res.foods = foods
   next()
 }
 
@@ -75,7 +113,7 @@ export async function getEmployeeByEmailAndPassword(
     if (employee === null)
       return res.status(404).json({ message: MESSAGE_CANNOT_FIND_EMPLOYEE })
   } catch (e: any) {
-    return res.status(500).json({ message: e.message })
+    return res.status(500).json(e)
   }
   res.employee = employee
   next()
@@ -91,8 +129,27 @@ export async function updateEmployeeLastSeen(
     res.employee.last_seen = new Date()
     await res.employee.save({ validateBeforeSave: false })
   } catch (e: any) {
-    return res.status(500).json({ message: e.message })
+    return res.status(500).json(e)
   }
+  next()
+}
+
+export async function getFoodTypesByTheirIDs(
+  req: Request,
+  res: any,
+  next: NextFunction
+) {
+  let foodtypes
+  try {
+    foodtypes = await FoodTypes.find({
+      _id: { $in: req.body.id || req.body._id }
+    })
+    if (foodtypes === null)
+      return res.status(404).json({ message: MESSAGE_CANNOT_FIND_TYPE })
+  } catch (e: any) {
+    return res.status(500).json(e)
+  }
+  res.foodtypes = foodtypes
   next()
 }
 

@@ -1,5 +1,6 @@
 import mongoose from 'mongoose'
-import { isNumberObject } from 'util/types'
+import uniqueValidator from 'mongoose-unique-validator'
+
 const Schema = mongoose.Schema
 
 const ROLES = ['common', 'moderator', 'employeer', 'seo']
@@ -31,7 +32,7 @@ const EmployeesSchema = new Schema({
   updated_at: { type: Date, default: Date.now, required: true },
   //updated_by: { type: Schema.Types.ObjectId, ref: 'Employees', required: true },
   last_seen: { type: Date, default: Date.now }
-})
+}).plugin(uniqueValidator, { message: 'This {TYPE} is taken.' })
 
 const Employees = mongoose.model('employees', EmployeesSchema)
 export default Employees
