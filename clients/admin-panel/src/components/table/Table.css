@@ -8,9 +8,11 @@ table {
   position: relative;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
-table * {
-  position: relative;
+
+table tbody {
+  position: static;
 }
+
 table td,
 table th {
   padding-left: 8px;
@@ -25,6 +27,11 @@ table tbody tr {
   height: 48px;
   border-bottom: 1px solid #ececec;
 }
+
+table tbody tr:nth-child(even) {
+  background-color: #fcfcfc;
+}
+
 table tbody tr:last-child {
   border: 0;
 }
@@ -48,11 +55,15 @@ table th.r {
   table {
     display: block;
   }
+  table * {
+    position: relative;
+  }
   table > *,
   table tr,
   table td,
   table th {
     display: block;
+    position: relative;
   }
   table thead {
     display: none;
