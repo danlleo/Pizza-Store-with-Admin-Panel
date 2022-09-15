@@ -22,14 +22,14 @@ All requires to be logged, except `/auth/login` and `/orders`
  
 ### Patch
 
-All requires to be logged
+All requires to be logged in
 * `/foods/:id`
 * `/foodtypes/:id`
 * `/orders/:id`
 
 ### Delete
 
-All requires to be logged
+All requires to be logged in
 * `/foods/:id`
 * `/foodtypes/:id`
 * `/orders/:id`
