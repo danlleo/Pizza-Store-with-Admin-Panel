@@ -4,9 +4,51 @@
   height: 100vh;
 }
 
-.home .home__container {
+.home .home__body {
   display: flex;
-  width: 100%;
+  flex-direction: column;
+  width: 1024px;
   height: 100%;
-  background: #000;
+  padding: 3rem;
+  margin: 0 auto;
+}
+
+.home .home__body input {
+  padding: 0.7rem 1rem;
+  outline: none;
+  border-radius: 10px;
+  border: 1px solid #ececec;
+  box-shadow: rgba(6, 5, 50, 0.1) 0px 4px 30px;
+}
+
+.home .home__body input:focus {
+  border: 1px solid #cacaca;
+}
+
+.home__body__blocks {
+  margin-top: 3rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem 2rem;
+}
+
+.home__body__blocks__item {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  background: #fff;
+  border-radius: 10px;
+  padding: 1rem 1.5rem;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.home__body__blocks__item p {
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.home__body__blocks__item svg {
+  height: 50px;
+  margin: 1rem 0;
 }
