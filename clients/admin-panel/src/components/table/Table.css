@@ -1,12 +1,11 @@
 table {
   border-spacing: 1;
   border-collapse: collapse;
-  background: white;
   border-radius: 6px;
   overflow: hidden;
   width: 100%;
   position: relative;
-  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  color: #fff;
 }
 
 table tbody {
@@ -15,21 +14,25 @@ table tbody {
 
 table td,
 table th {
-  padding-left: 8px;
+  padding-left: 2rem;
 }
 table thead tr {
   height: 60px;
-  background: #53bfdd;
+  background: #2a2a2a;
   font-size: 16px;
   color: #fff;
 }
 table tbody tr {
   height: 48px;
-  border-bottom: 1px solid #ececec;
+  border-bottom: 1px solid #535353;
 }
 
 table tbody tr:nth-child(even) {
-  background-color: #fcfcfc;
+  background: #343434;
+}
+
+table tbody tr:nth-child(odd) {
+  background: #3b3b3b;
 }
 
 table tbody tr:last-child {

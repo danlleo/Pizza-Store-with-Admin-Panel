@@ -57,7 +57,7 @@ const Home = () => {
             <h1>40,876</h1>
           </div>
         </div>
-        <h1 style={{ margin: '2.5rem 0 1rem' }}>Recent Sales</h1>
+        <h1 style={{ margin: '2.5rem 0 1rem' }}>Recent Orders</h1>
         <Table />
       </div>
     </div>

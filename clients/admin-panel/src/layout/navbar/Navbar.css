@@ -3,18 +3,18 @@
   top: 0;
   height: 100vh;
   width: 300px;
-  box-shadow: rgba(6, 5, 50, 0.1) 0px 4px 30px;
   padding: 2rem;
   display: flex;
   justify-content: space-between;
   flex-direction: column;
-  background: #fff;
+  background: #27272b;
 }
 
 .navbar .navbar__logo {
   width: 100%;
   display: flex;
   align-items: center;
+  color: #fff;
 }
 
 .navbar .navbar__logo img {
@@ -39,10 +39,7 @@
   align-items: center;
   width: 100%;
   padding: 1rem;
-}
-
-.navbar .navbar__links a.selected {
-  font-weight: bold;
+  color: #fff;
 }
 
 .navbar .navbar__links a svg {
@@ -51,6 +48,7 @@
 }
 
 .navbar .navbar__logout {
+  color: #fff;
   display: flex;
   align-items: center;
   cursor: pointer;

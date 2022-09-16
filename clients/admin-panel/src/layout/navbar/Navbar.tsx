@@ -20,15 +20,15 @@ const Navbar = () => {
         <h2>WS ADMIN</h2>
       </div>
       <div className='navbar__links'>
-        <Link to='/' className='selected'>
+        <Link to='/'>
           <FontAwesomeIcon icon={faClone} />
           <p>Dashboard</p>
         </Link>
-        <Link to='/'>
+        <Link to='/products'>
           <FontAwesomeIcon icon={faBell} />
           <p>Products</p>
         </Link>
-        <Link to='/'>
+        <Link to='/categories'>
           <FontAwesomeIcon icon={faChartBar} />
           <p>Categories</p>
         </Link>
