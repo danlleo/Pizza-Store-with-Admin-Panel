@@ -40,6 +40,11 @@
   width: 100%;
   padding: 1rem;
   color: #fff;
+  transition: 0.2s ease-in-out;
+}
+
+.navbar .navbar__links a:hover {
+  color: #a9a9a9;
 }
 
 .navbar .navbar__links a svg {
@@ -52,6 +57,11 @@
   display: flex;
   align-items: center;
   cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+
+.navbar .navbar__logout:hover {
+  color: #a9a9a9;
 }
 
 .navbar .navbar__logout svg {
