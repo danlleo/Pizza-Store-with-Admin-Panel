@@ -4,7 +4,7 @@
 }
 
 .home h1 {
-  color: #fff;
+  color: #eee;
 
 }
 
@@ -39,7 +39,7 @@
   justify-content: space-around;
   align-items: center;
   background: #2a2a2a;
-  color: #fff;
+  color: #eee;
   border-radius: 10px;
   padding: 1rem 1.5rem;
 }

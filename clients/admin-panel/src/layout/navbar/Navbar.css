@@ -14,7 +14,7 @@
   width: 100%;
   display: flex;
   align-items: center;
-  color: #fff;
+  color: #eee;
 }
 
 .navbar .navbar__logo img {
@@ -39,7 +39,7 @@
   align-items: center;
   width: 100%;
   padding: 1rem;
-  color: #fff;
+  color: #eee;
   transition: 0.2s ease-in-out;
 }
 
@@ -53,7 +53,7 @@
 }
 
 .navbar .navbar__logout {
-  color: #fff;
+  color: #eee;
   display: flex;
   align-items: center;
   cursor: pointer;

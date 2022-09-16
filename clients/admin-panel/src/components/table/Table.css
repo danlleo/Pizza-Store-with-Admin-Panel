@@ -5,7 +5,7 @@ table {
   overflow: hidden;
   width: 100%;
   position: relative;
-  color: #fff;
+  color: #eee;
 }
 
 table tbody {
@@ -20,8 +20,8 @@ table thead tr {
   height: 60px;
   background: #2a2a2a;
   font-size: 16px;
-  color: #fff;
 }
+
 table tbody tr {
   height: 48px;
   border-bottom: 1px solid #535353;
@@ -88,20 +88,5 @@ table th.r {
     width: 40%;
     left: 10px;
     top: 0;
-  }
-  table tbody tr td:nth-child(1):before {
-    content: 'Code';
-  }
-  table tbody tr td:nth-child(2):before {
-    content: 'Stock';
-  }
-  table tbody tr td:nth-child(3):before {
-    content: 'Cap';
-  }
-  table tbody tr td:nth-child(4):before {
-    content: 'Inch';
-  }
-  table tbody tr td:nth-child(5):before {
-    content: 'Box Type';
   }
 }

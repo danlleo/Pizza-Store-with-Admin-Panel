@@ -11,3 +11,19 @@
   padding: 3rem;
   margin: 0 auto;
 }
+
+.products__body__head {
+  display: flex;
+  justify-content: space-between;
+  color: #eee;
+  margin-bottom: 3rem;
+}
+
+.products__body__head button {
+  cursor: pointer;
+  background: none;
+  border-radius: 10px;
+  padding: 0 2rem;
+  color: #eee;
+  border: 1px solid #eee;
+}

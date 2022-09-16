@@ -1,0 +1,9 @@
+.product {
+  display: flex;
+  padding: 2rem;
+  width: 100%;
+  background: #2a2a2a;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  cursor: pointer;
+}
