@@ -20,7 +20,7 @@ foodTypesRouter.get('/', getAllFoodTypesController)
 foodTypesRouter.get('/:type', getFoodTypeByName, getOneFoodTypeController)
 
 //Creating
-foodTypesRouter.post('/', cookieJwtAuthentication, createFoodTypeController)
+foodTypesRouter.post('/', createFoodTypeController)
 
 //Updating one
 foodTypesRouter.patch(
