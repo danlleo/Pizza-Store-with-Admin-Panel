@@ -45,19 +45,28 @@ const Modal = () => {
   const handleSubmit = async (e: any) => {
     e.preventDefault()
 
-    axios
-      .post('http://localhost:3002/foods', {
-        name: inputs.product_name,
-        description: inputs.product_description,
-        price: inputs.product_price,
-        type: inputs.product_type,
-        image: inputs.product_image,
-        calories: inputs.product_calories,
-        fat: inputs.product_fat,
-        carbs: inputs.product_carbs,
-        proteins: inputs.product_protein,
-        sugar: inputs.product_sugar
-      })
+    await axios
+      .post(
+        'http://localhost:8080/foods',
+
+        {
+          name: inputs.product_name,
+          description: inputs.product_description,
+          price: inputs.product_price,
+          type: inputs.product_type,
+          image: e.target.product_image.files[0],
+          calories: inputs.product_calories,
+          fat: inputs.product_fat,
+          salt: inputs.product_salt,
+          carbs: inputs.product_carbs,
+          proteins: inputs.product_protein,
+          sugar: inputs.product_sugar
+        },
+        {
+          headers: { 'Content-Type': 'multipart/form-data' },
+          withCredentials: true
+        }
+      )
       .then((res) => {
         console.log(res)
         dispatch(close())
@@ -78,7 +87,7 @@ const Modal = () => {
           onClick={closeModal}
         />
         <h2>Add new product</h2>
-        <h3>Name and price</h3>
+        <h3>Name and price*</h3>
         <div className='modal__container__header'>
           <input
             type='text'
@@ -101,7 +110,7 @@ const Modal = () => {
             style={{ width: '20%' }}
           />
         </div>
-        <h3>Nutrition</h3>
+        <h3>Nutrition*</h3>
         <div className='modal__container__nutrition'>
           <input
             type='number'
@@ -158,11 +167,10 @@ const Modal = () => {
           name='product_description'
           placeholder='Description'
           className='description'
-          required
           onChange={handleChange}
           value={inputs.product_description}
         />
-        <h3>Choose a type</h3>
+        <h3>Choose a type*</h3>
         <select
           name='product_type'
           onChange={handleChange}
@@ -173,7 +181,7 @@ const Modal = () => {
           <option value='drinks'>Drinks</option>
           <option value='desserts'>Desserts</option>
         </select>
-        <h3>Choose an image</h3>
+        <h3>Choose an image*</h3>
         <input
           type='file'
           name='product_image'
