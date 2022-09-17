@@ -14,7 +14,7 @@
   width: 100%;
   display: flex;
   align-items: center;
-  color: var(--main-font-color);
+  color: var(--main-accent-color);
 }
 
 .navbar .navbar__logo img {

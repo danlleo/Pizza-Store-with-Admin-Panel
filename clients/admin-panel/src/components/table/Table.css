@@ -18,21 +18,21 @@ table th {
 }
 table thead tr {
   height: 60px;
-  background: #2a2a2a;
+  background: var(--items-background-color);
   font-size: 16px;
 }
 
 table tbody tr {
   height: 48px;
-  border-bottom: 1px solid #535353;
+  border-bottom: 1px solid var(--items-background-color);
 }
 
 table tbody tr:nth-child(even) {
-  background: #343434;
+  background: var(--items-color);
 }
 
 table tbody tr:nth-child(odd) {
-  background: #3b3b3b;
+  background: var(--items-color-darker);
 }
 
 table tbody tr:last-child {

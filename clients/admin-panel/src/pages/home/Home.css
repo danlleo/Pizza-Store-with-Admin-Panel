@@ -21,8 +21,8 @@
   outline: none;
   border-radius: 10px;
   border: none;
-  background: #494949;
-  color: hsla(0, 0%, 100%, 0.87);
+  background: var(--items-color);
+  color: var(--main-font-color);
 }
 
 .home__body__blocks {

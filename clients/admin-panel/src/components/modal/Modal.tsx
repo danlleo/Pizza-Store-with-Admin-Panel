@@ -56,8 +56,8 @@ const Modal = () => {
           icon={faXmark}
           onClick={closeModal}
         />
-        <h1>Add new product</h1>
-        <h2>Name and price</h2>
+        <h2>Add new product</h2>
+        <h3>Name and price</h3>
         <div className='modal__container__header'>
           <input
             type='text'
@@ -80,7 +80,7 @@ const Modal = () => {
             style={{ width: '20%' }}
           />
         </div>
-        <h2>Nutrition</h2>
+        <h3>Nutrition</h3>
         <div className='modal__container__nutrition'>
           <input
             type='number'
@@ -131,7 +131,7 @@ const Modal = () => {
             value={inputs.product_protein}
           />
         </div>
-        <h2>About</h2>
+        <h3>About</h3>
         <input
           type='text'
           name='product_description'
@@ -141,7 +141,7 @@ const Modal = () => {
           onChange={handleChange}
           value={inputs.product_description}
         />
-        <h2>Choose a type</h2>
+        <h3>Choose a type</h3>
         <select
           name='product_type'
           onChange={handleChange}
@@ -152,7 +152,7 @@ const Modal = () => {
           <option value='drinks'>Drinks</option>
           <option value='desserts'>Desserts</option>
         </select>
-        <h2>Choose an image</h2>
+        <h3>Choose an image</h3>
         <input
           type='file'
           name='product_image'

@@ -9,10 +9,13 @@
 
 :root {
   --main-font-color: #eee;
-  --main-accent-color: #23f7b8;
-  --main-muted-font-color: hsla(0, 0%, 96%, 0.6);
+  --main-accent-color: #25bb8e;
+  --main-accent-color-hover: #a6c0b9;
+  --main-muted-font-color: #b7bebc;
   --background-color: #1c1c1f;
-  --items-color: #2a2a2a;
+  --items-background-color: #2b2c30;
+  --items-color: #43444b;
+  --items-color-darker: #3e3e44;
   --navbar-background-color: #27272b;
 }
 
