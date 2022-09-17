@@ -5,5 +5,48 @@
   background: #2a2a2a;
   border-radius: 10px;
   margin-bottom: 1rem;
+}
+
+.product__btn__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.product__btn__container button {
   cursor: pointer;
+  color: #eee;
+  background: none;
+  border: none;
+  font-size: 24px;
+  transition: all 0.2s ease-in-out;
+}
+
+.product__btn__container button:hover {
+  color: #a9a9a9;
+}
+
+.product__container {
+  display: flex;
+  width: 100%;
+}
+
+.product__container img {
+  border-radius: 10px;
+  width: 100px;
+  margin-right: 2rem;
+}
+
+.product__container h1 {
+  color: #eee;
+}
+
+.product__container p {
+  color: hsla(0, 0%, 96%, 0.6);
+}
+
+.product__container__about {
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
 }
