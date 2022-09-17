@@ -4,8 +4,7 @@
 }
 
 .home h1 {
-  color: #eee;
-
+  color: var(--main-font-color);
 }
 
 .home .home__body {
@@ -23,7 +22,7 @@
   border-radius: 10px;
   border: none;
   background: #494949;
-  color: hsla(0,0%,100%,.87);
+  color: hsla(0, 0%, 100%, 0.87);
 }
 
 .home__body__blocks {
@@ -38,8 +37,8 @@
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  background: #2a2a2a;
-  color: #eee;
+  background: var(--items-color);
+  color: var(--main-font-color);
   border-radius: 10px;
   padding: 1rem 1.5rem;
 }
@@ -47,7 +46,7 @@
 .home__body__blocks__item p {
   font-weight: bold;
   font-size: 14px;
-  color: hsla(0,0%,96%,.6);
+  color: var(--main-muted-font-color);
 }
 
 .home__body__blocks__item svg {

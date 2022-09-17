@@ -15,7 +15,7 @@
 
 .product__btn__container button {
   cursor: pointer;
-  color: #eee;
+  color: var(--main-font-color);
   background: none;
   border: none;
   font-size: 24px;
@@ -23,7 +23,7 @@
 }
 
 .product__btn__container button:hover {
-  color: #a9a9a9;
+  color: var(--main-accent-color);
 }
 
 .product__container {
@@ -38,11 +38,11 @@
 }
 
 .product__container h1 {
-  color: #eee;
+  color: var(--main-font-color);
 }
 
 .product__container p {
-  color: hsla(0, 0%, 96%, 0.6);
+  color: var(--main-muted-font-color);
 }
 
 .product__container__about {

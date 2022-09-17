@@ -7,11 +7,19 @@
   font-family: 'Open Sans', sans-serif;
 }
 
+:root {
+  --main-font-color: #eee;
+  --main-accent-color: #23f7b8;
+  --main-muted-font-color: hsla(0, 0%, 96%, 0.6);
+  --background-color: #1c1c1f;
+  --items-color: #2a2a2a;
+  --navbar-background-color: #27272b;
+}
+
 body {
-  background: #1d1d20;
+  background: var(--background-color);
 }
 
 a {
   text-decoration: none;
-  color: #000;
 }

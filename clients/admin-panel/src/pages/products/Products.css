@@ -15,8 +15,8 @@
 .products__body__head {
   display: flex;
   justify-content: space-between;
-  color: #eee;
-  margin-bottom: 3rem;
+  color: var(--main-font-color);
+  margin-bottom: 1.5rem;
 }
 
 .products__body__head button {
@@ -24,11 +24,12 @@
   background: transparent;
   border-radius: 10px;
   padding: 0 1rem;
-  color: #eee;
-  border: 1px solid rgb(108, 108, 108);
+  color: var(--main-accent-color);
+  border: 1px solid var(--main-accent-color);
   transition: 0.2s ease-in-out;
 }
 
 .products__body__head button:hover {
-  background: rgba(73, 73, 73, 0.7);
+  background: #23f7b8;
+  color: var(--main-font-color);
 }

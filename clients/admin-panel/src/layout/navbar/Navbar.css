@@ -7,14 +7,14 @@
   display: flex;
   justify-content: space-between;
   flex-direction: column;
-  background: #27272b;
+  background: var(--navbar-background-color);
 }
 
 .navbar .navbar__logo {
   width: 100%;
   display: flex;
   align-items: center;
-  color: #eee;
+  color: var(--main-font-color);
 }
 
 .navbar .navbar__logo img {
@@ -39,12 +39,12 @@
   align-items: center;
   width: 100%;
   padding: 1rem;
-  color: #eee;
+  color: var(--main-font-color);
   transition: 0.2s ease-in-out;
 }
 
 .navbar .navbar__links a:hover {
-  color: #a9a9a9;
+  color: var(--main-accent-color);
 }
 
 .navbar .navbar__links a svg {
@@ -53,7 +53,7 @@
 }
 
 .navbar .navbar__logout {
-  color: #eee;
+  color: var(--main-font-color);
   display: flex;
   align-items: center;
   cursor: pointer;
@@ -61,7 +61,7 @@
 }
 
 .navbar .navbar__logout:hover {
-  color: #a9a9a9;
+  color: var(--main-accent-color);
 }
 
 .navbar .navbar__logout svg {

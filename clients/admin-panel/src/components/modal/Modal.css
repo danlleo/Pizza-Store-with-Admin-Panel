@@ -1,0 +1,159 @@
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeout {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.modal__open {
+  animation: fadein;
+  animation-duration: 0.1s;
+}
+
+.modal__close {
+  animation: fadeout;
+  animation-duration: 0.1s;
+}
+
+.closeBtn {
+  position: absolute;
+  right: 0;
+  margin-top: 0.5rem;
+  margin-right: 3rem;
+  border: none;
+  font-size: 24px;
+  color: var(--main-font-color);
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: 100%;
+}
+
+.modal__container {
+  position: fixed;
+  margin: 1rem;
+  padding: 2rem 3rem;
+  max-width: 600px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background: var(--items-color);
+  z-index: 11;
+  border-radius: 10px;
+}
+
+.modal__container h1 {
+  color: var(--main-font-color);
+  margin-bottom: 1.5rem;
+}
+
+.modal__container h2 {
+  color: var(--main-muted-font-color);
+  margin-bottom: 0.5rem;
+}
+
+.modal__container__header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.modal__container input[type='text'] {
+  height: 40px;
+  padding-left: 1rem;
+  border: none;
+  border-radius: 5px;
+  background: #494949;
+  color: var(--main-muted-font-color);
+  font-size: 16px;
+  outline: none;
+}
+
+.modal__container input[type='number'] {
+  height: 40px;
+  padding-left: 1rem;
+  padding-right: 0.5rem;
+  border: none;
+  border-radius: 5px;
+  background: #494949;
+  color: var(--main-font-color);
+  font-size: 16px;
+  outline: none;
+}
+
+.modal__container select {
+  cursor: pointer;
+  margin-bottom: 1rem;
+  background: #494949;
+  color: var(--main-font-color);
+  border: none;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+}
+
+.modal__container input[type='submit'] {
+  margin-top: 1rem;
+  background: var(--main-accent-color);
+  color: var(--main-font-color);
+  padding: 1rem;
+  cursor: pointer;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  transition: all 0.2s ease-in-out;
+}
+
+.modal__container input[type='submit']:hover {
+  background: #ccc;
+}
+
+.modal__container input[type='file'] {
+  color: var(--main-font-color);
+  margin-bottom: 1rem;
+}
+
+.modal__container__nutrition {
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  display: grid;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.description {
+  min-height: 100px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
