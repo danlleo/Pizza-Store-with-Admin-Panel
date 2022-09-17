@@ -1,3 +1,4 @@
+import axios from 'axios'
 import { faXmark } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useAppDispatch } from '../../store'
@@ -43,8 +44,28 @@ const Modal = () => {
 
   const handleSubmit = async (e: any) => {
     e.preventDefault()
-    dispatch(close())
-    notifySuccess()
+
+    axios
+      .post('http://localhost:3002/foods', {
+        name: inputs.product_name,
+        description: inputs.product_description,
+        price: inputs.product_price,
+        type: inputs.product_type,
+        image: inputs.product_image,
+        calories: inputs.product_calories,
+        fat: inputs.product_fat,
+        carbs: inputs.product_carbs,
+        proteins: inputs.product_protein,
+        sugar: inputs.product_sugar
+      })
+      .then((res) => {
+        console.log(res)
+        dispatch(close())
+        notifySuccess()
+      })
+      .catch((err) => {
+        console.log(err)
+      })
   }
 
   return (
@@ -70,7 +91,7 @@ const Modal = () => {
             style={{ width: '80%', marginRight: '1rem' }}
           />
           <input
-            type='text'
+            type='number'
             name='product_price'
             placeholder='Price'
             className='productPrice'
