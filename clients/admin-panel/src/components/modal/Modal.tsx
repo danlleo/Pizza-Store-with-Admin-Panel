@@ -47,7 +47,7 @@ const Modal = () => {
 
     await axios
       .post(
-        'http://localhost:8080/foods',
+        'https://pizza-store-api.herokuapp.com/foods',
 
         {
           name: inputs.product_name,

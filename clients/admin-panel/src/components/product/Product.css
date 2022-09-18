@@ -39,10 +39,12 @@
 
 .product__container h1 {
   color: var(--main-font-color);
+  text-transform: capitalize;
 }
 
 .product__container p {
   color: var(--main-muted-font-color);
+  text-transform: capitalize;
 }
 
 .product__container__about {

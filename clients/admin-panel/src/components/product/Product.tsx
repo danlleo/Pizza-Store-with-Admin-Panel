@@ -2,19 +2,24 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faXmark, faPenToSquare } from '@fortawesome/free-solid-svg-icons'
 import './Product.css'
 
-const Product = () => {
+interface IProduct {
+  image: string
+  name: string
+  description: string
+}
+
+const Product = ({ image, name, description }: IProduct) => {
   return (
     <div className='product'>
       <div className='product__container'>
         <img
-          src='https://pizza-store.s3.eu-central-1.amazonaws.com/632587ee7751114cd5ea28b3.png'
+          src={image}
           alt='dish'
         />
         <div className='product__container__about'>
-          <h1>Pepperoni</h1>
+          <h1>{name}</h1>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam non
-            urna imperdiet, sollicitudin velit sit amet, laoreet leo.
+            {description}
           </p>
         </div>
       </div>
