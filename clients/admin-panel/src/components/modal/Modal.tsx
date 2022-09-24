@@ -1,13 +1,14 @@
-import axios from 'axios'
 import { faXmark } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useAppDispatch } from '../../store'
 import { useState } from 'react'
 import { close } from '../../store/features/modalSlice'
 import { toast } from 'react-toastify'
+import { useAddStoreItemMutation } from '../../api/apiSlice'
 import './Modal.css'
 
 const Modal = () => {
+  const [addItem] = useAddStoreItemMutation()
   const [isOpen, setIsOpen] = useState('modal__open')
   const [inputs, setInputs] = useState({
     product_name: '',
@@ -35,6 +36,10 @@ const Modal = () => {
     toast.success('Successfully added!')
   }
 
+  const notifyError = (message: string) => {
+    toast.error(message)
+  }
+
   const handleChange = (e: any) => {
     setInputs((prevState) => ({
       ...prevState,
@@ -45,35 +50,23 @@ const Modal = () => {
   const handleSubmit = async (e: any) => {
     e.preventDefault()
 
-    await axios
-      .post(
-        'https://pizza-store-api.herokuapp.com/foods',
-
-        {
-          name: inputs.product_name,
-          description: inputs.product_description,
-          price: inputs.product_price,
-          type: inputs.product_type,
-          image: e.target.product_image.files[0],
-          calories: inputs.product_calories,
-          fat: inputs.product_fat,
-          salt: inputs.product_salt,
-          carbs: inputs.product_carbs,
-          proteins: inputs.product_protein,
-          sugar: inputs.product_sugar
-        },
-        {
-          headers: { 'Content-Type': 'multipart/form-data' },
-          withCredentials: true
-        }
-      )
-      .then((res) => {
-        console.log(res)
-        dispatch(close())
-        notifySuccess()
-      })
+    await addItem({
+      name: inputs.product_name,
+      description: inputs.product_description,
+      price: inputs.product_price,
+      type: inputs.product_type,
+      image: e.target.product_image.files[0],
+      calories: inputs.product_calories,
+      fat: inputs.product_fat,
+      salt: inputs.product_salt,
+      carbs: inputs.product_carbs,
+      proteins: inputs.product_protein,
+      sugar: inputs.product_sugar
+    })
+      .unwrap()
+      .then(() => notifySuccess())
       .catch((err) => {
-        console.log(err)
+        notifyError(err.data)
       })
   }
 

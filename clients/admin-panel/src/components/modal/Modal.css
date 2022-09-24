@@ -126,8 +126,8 @@
 
 .modal__container input[type='submit'] {
   margin-top: 1rem;
-  background: var(--main-accent-color);
-  color: var(--main-font-color);
+  background: transparent;
+  color: var(--main-accent-color);
   padding: 1rem;
   cursor: pointer;
   font-size: 16px;
@@ -137,8 +137,8 @@
 }
 
 .modal__container input[type='submit']:hover {
-  background: transparent;
-  color: var(--main-accent-color);
+  background: var(--main-accent-color);
+  color: var(--main-font-color);
 }
 
 .modal__container input[type='file'] {
