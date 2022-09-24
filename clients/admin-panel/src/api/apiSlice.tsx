@@ -29,9 +29,11 @@ export const apiSlice = createApi({
     baseUrl: 'https://pizza-store-api.herokuapp.com',
     mode: 'cors'
   }),
+  tagTypes: ['foodItem'],
   endpoints: (builder) => ({
     getStoreItems: builder.query<Product[], void>({
-      query: () => '/foods'
+      query: () => '/foods',
+      providesTags: ['foodItem']
     }),
     addStoreItem: builder.mutation<any, any>({
       query: (product) => ({
@@ -39,8 +41,18 @@ export const apiSlice = createApi({
         method: 'POST',
         body: product
       })
+    }),
+    removeStoreItem: builder.mutation<any, any>({
+      query: (name) => ({
+        url: `/foods/${name}`,
+        method: 'DELETE'
+      })
     })
   })
 })
 
-export const { useGetStoreItemsQuery, useAddStoreItemMutation } = apiSlice
+export const {
+  useGetStoreItemsQuery,
+  useAddStoreItemMutation,
+  useRemoveStoreItemMutation
+} = apiSlice
