@@ -1,7 +1,7 @@
 import Product from '../../components/product/Product'
 import Navbar from '../../layout/navbar/Navbar'
-import Modal from '../../components/modal/Modal'
-import { open } from '../../store/features/modalSlice'
+import ModalProducts from '../../components/modal-products/ModalProducts'
+import { openProductModal } from '../../store/features/modalProductSlice'
 import { ToastContainer } from 'react-toastify'
 import { useAppSelector, useAppDispatch } from '../../store'
 import { PropagateLoader } from 'react-spinners'
@@ -12,17 +12,17 @@ const Products = () => {
   const { data: items, isLoading } = useGetStoreItemsQuery()
 
   const dispatch = useAppDispatch()
-  const isOpen = useAppSelector((state) => state.modalState.isOpen)
+  const isOpen = useAppSelector((state) => state.modalProductState.isOpen)
 
   const openModal = () => {
-    dispatch(open())
+    dispatch(openProductModal())
   }
 
   return (
     <div className='products'>
       <Navbar />
       <div className='products__body'>
-        {isOpen && <Modal />}
+        {isOpen && <ModalProducts />}
         <div className='products__body__head'>
           <h1>All Products</h1>
           <button onClick={openModal}>Add Product</button>

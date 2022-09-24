@@ -1,28 +1,57 @@
-import Product from '../../components/product/Product'
 import Navbar from '../../layout/navbar/Navbar'
-import { useState } from 'react'
+import ModalTypes from '../../components/modal-types/ModalTypes'
+import Category from '../../components/category/Category'
+import { useAppSelector, useAppDispatch } from '../../store'
+import { openModalTypes } from '../../store/features/modalTypesSlice'
+import { useGetStoreTypesQuery } from '../../api/apiSlice'
+import { PropagateLoader } from 'react-spinners'
+import { ToastContainer } from 'react-toastify'
 import './Categories.css'
 
 const Categories = () => {
-  const [open, setOpen] = useState(false)
+  const { data: items, isLoading } = useGetStoreTypesQuery()
+
+  const dispatch = useAppDispatch()
+  const isOpen = useAppSelector((state) => state.modalTypeState.isOpen)
 
   const openModal = () => {
-    setOpen(true)
-  }
-
-  const closeModal = () => {
-    setOpen(false)
+    dispatch(openModalTypes())
   }
 
   return (
-    <div className='products'>
+    <div className='category'>
       <Navbar />
-      <div className='products__body'>
-        <div className='products__body__head'>
-          <h1>All Categories</h1>
-          <button onClick={openModal}>Add Category</button>
+      <div className='category__body'>
+        <div className='category__body__head'>
+          <h1>All Types</h1>
+          <button onClick={openModal}>Add Types</button>
         </div>
+        {isOpen && <ModalTypes />}
+        {!isLoading ? (
+          <div>
+            {items?.map((item) => (
+              <Category name={item.type} key={item._id} />
+            ))}
+          </div>
+        ) : (
+          <>
+            <PropagateLoader
+              color='var(--main-accent-color)'
+              style={{ alignSelf: 'center', marginTop: '1rem' }}
+            />
+          </>
+        )}
       </div>
+      <ToastContainer
+        position='bottom-right'
+        autoClose={3000}
+        hideProgressBar={true}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        draggable
+        theme='dark'
+      />
     </div>
   )
 }

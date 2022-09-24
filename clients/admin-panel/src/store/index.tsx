@@ -1,11 +1,13 @@
-import modalSlice from './features/modalSlice'
+import modalProductSlice from './features/modalProductSlice'
+import modalTypesSlice from './features/modalTypesSlice'
 import { configureStore } from '@reduxjs/toolkit'
 import { apiSlice } from '../api/apiSlice'
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux'
 
 const store = configureStore({
   reducer: {
-    modalState: modalSlice,
+    modalProductState: modalProductSlice,
+    modalTypeState: modalTypesSlice,
     [apiSlice.reducerPath]: apiSlice.reducer
   }
 })

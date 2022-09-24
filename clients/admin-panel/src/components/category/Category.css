@@ -1,0 +1,22 @@
+.categoryItem {
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem;
+  margin-bottom: 1rem;
+  border-radius: 10px;
+  background: var(--items-background-color);
+  text-transform: capitalize;
+}
+
+.categoryItem button {
+  background: none;
+  border: none;
+  color: var(--main-font-color);
+  transition: 0.2s ease-in-out;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.categoryItem button:hover {
+  color: var(--main-accent-color);
+}

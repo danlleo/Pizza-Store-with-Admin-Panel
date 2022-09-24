@@ -2,12 +2,12 @@ import { faXmark } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useAppDispatch } from '../../store'
 import { useState } from 'react'
-import { close } from '../../store/features/modalSlice'
+import { closeProductModal } from '../../store/features/modalProductSlice'
 import { toast } from 'react-toastify'
 import { useAddStoreItemMutation } from '../../api/apiSlice'
-import './Modal.css'
+import './ModalProducts.css'
 
-const Modal = () => {
+const ModalProducts = () => {
   const [addItem] = useAddStoreItemMutation()
   const [isOpen, setIsOpen] = useState('modal__open')
   const [inputs, setInputs] = useState({
@@ -28,7 +28,7 @@ const Modal = () => {
   const closeModal = () => {
     setIsOpen('modal__close')
     setTimeout(() => {
-      dispatch(close())
+      dispatch(closeProductModal())
     }, 100)
   }
 
@@ -187,4 +187,4 @@ const Modal = () => {
   )
 }
 
-export default Modal
+export default ModalProducts

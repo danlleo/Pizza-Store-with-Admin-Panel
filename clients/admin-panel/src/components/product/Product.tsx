@@ -13,8 +13,6 @@ const Product = ({ image, name, description }: IProduct) => {
   const [removeStoreItem] = useRemoveStoreItemMutation()
 
   const removeFromStore = (name: string) => {
-    console.log(name)
-
     removeStoreItem(name)
   }
 
