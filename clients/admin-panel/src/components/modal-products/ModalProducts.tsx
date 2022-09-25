@@ -4,10 +4,16 @@ import { useAppDispatch } from '../../store'
 import { useState } from 'react'
 import { closeProductModal } from '../../store/features/modalProductSlice'
 import { toast } from 'react-toastify'
-import { useAddStoreItemMutation } from '../../api/apiSlice'
+import {
+  useAddStoreItemMutation,
+  useGetStoreTypesQuery
+} from '../../api/apiSlice'
+
 import './ModalProducts.css'
 
 const ModalProducts = () => {
+  const { data: items } = useGetStoreTypesQuery()
+
   const [addItem] = useAddStoreItemMutation()
   const [isOpen, setIsOpen] = useState('modal__open')
   const [inputs, setInputs] = useState({
@@ -169,10 +175,11 @@ const ModalProducts = () => {
           onChange={handleChange}
           value={inputs.product_type}
         >
-          <option value='burger'>Burger</option>
-          <option value='pizza'>Pizza</option>
-          <option value='drinks'>Drinks</option>
-          <option value='desserts'>Desserts</option>
+          {items?.map((item) => (
+            <option value={item?.type} key={item?._id}>
+              {item?.type}
+            </option>
+          ))}
         </select>
         <h3>Choose an image*</h3>
         <input
