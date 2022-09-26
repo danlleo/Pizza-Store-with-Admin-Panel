@@ -9,13 +9,41 @@ import { useGetStoreItemsQuery } from '../../api/apiSlice'
 import './Products.css'
 
 const Products = () => {
-  const { data: items, isLoading } = useGetStoreItemsQuery()
+  const { data: items, isLoading, isSuccess, isError } = useGetStoreItemsQuery()
 
   const dispatch = useAppDispatch()
   const isOpen = useAppSelector((state) => state.modalProductState.isOpen)
 
   const openModal = () => {
     dispatch(openProductModal())
+  }
+
+  let content
+
+  if (isLoading) {
+    content = (
+      <>
+        <PropagateLoader
+          color='var(--main-accent-color)'
+          style={{ alignSelf: 'center', marginTop: '1rem' }}
+        />
+      </>
+    )
+  } else if (isSuccess) {
+    content = (
+      <div>
+        {items?.map((item) => (
+          <Product
+            image={`https://pizza-store.s3.eu-central-1.amazonaws.com/${item?.image_path}`}
+            name={item?.name}
+            description={item?.description}
+            key={item?._id}
+          />
+        ))}
+      </div>
+    )
+  } else if (isError) {
+    content = <h1>Error loading data..</h1>
   }
 
   return (
@@ -27,25 +55,7 @@ const Products = () => {
           <h1>All Products</h1>
           <button onClick={openModal}>Add Product</button>
         </div>
-        {!isLoading ? (
-          <div>
-            {items?.map((item) => (
-              <Product
-                image={`https://pizza-store.s3.eu-central-1.amazonaws.com/${item?.image_path}`}
-                name={item?.name}
-                description={item?.description}
-                key={item?._id}
-              />
-            ))}
-          </div>
-        ) : (
-          <>
-            <PropagateLoader
-              color='var(--main-accent-color)'
-              style={{ alignSelf: 'center', marginTop: '1rem' }}
-            />
-          </>
-        )}
+        {content}
         <ToastContainer
           position='bottom-right'
           autoClose={3000}

@@ -1,6 +1,6 @@
 import modalProductSlice from './features/modalProductSlice'
 import modalTypesSlice from './features/modalTypesSlice'
-import { configureStore } from '@reduxjs/toolkit'
+import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit'
 import { apiSlice } from '../api/apiSlice'
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux'
 
@@ -9,7 +9,9 @@ const store = configureStore({
     modalProductState: modalProductSlice,
     modalTypeState: modalTypesSlice,
     [apiSlice.reducerPath]: apiSlice.reducer
-  }
+  },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(apiSlice.middleware)
 })
 
 export type RootState = ReturnType<typeof store.getState>
