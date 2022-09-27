@@ -8,6 +8,7 @@
 }
 
 .cartItem__header {
+  position: relative;
   display: flex;
   width: 100%;
   border-bottom: 1px solid #e2e2e9;
@@ -24,6 +25,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  width: 100%;
 }
 
 .cartItem__header .cartItem__description p {
@@ -66,4 +68,14 @@
   background: transparent;
   cursor: pointer;
   padding: 0 8px;
+}
+
+.cartItem__header button {
+  position: absolute;
+  right: 0;
+  border: none;
+  background: none;
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
 }

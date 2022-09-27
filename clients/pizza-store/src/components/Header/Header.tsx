@@ -1,6 +1,6 @@
 import Icon from '../../assets/logo.svg'
 import { useDispatch } from 'react-redux'
-import { open } from '../../store/cart/CartSlice'
+import { open } from '../../store/features/cartSlice'
 import './Header.css'
 
 export default () => {

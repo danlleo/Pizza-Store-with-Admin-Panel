@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux'
-import { addItem } from '../../store/cart/CartListSlice'
+import { addToCart } from '../../store/features/cartListSlice'
 import './DishItem.css'
 
 export default () => {
@@ -26,8 +26,8 @@ export default () => {
         <button
           onClick={() => {
             dispatch(
-              addItem({
-                dishName: 'Margarita',
+              addToCart({
+                title: 'Ham & Cheesse',
                 description: 'Ham, Mozzarella, Alfredo sauce',
                 image:
                   'https://cdn.dodostatic.net/static/Img/Products/5630c6ed3f394c7ba25e1ef79a67b7ee_292x292.jpeg',

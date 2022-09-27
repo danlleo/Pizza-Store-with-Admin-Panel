@@ -2,11 +2,10 @@ import Header from './components/Header/Header'
 import Cart from './components/Cart/Cart'
 import Footer from './components/Footer/Footer'
 import Home from './pages/Home'
-import { useSelector } from 'react-redux'
-import { selectCart } from './store'
+import { useAppSelector } from './store'
 
 export default () => {
-  const isOpen = useSelector(selectCart)
+  const isOpen = useAppSelector((state) => state.cart.isOpen)
 
   return (
     <>
