@@ -1,3 +1,4 @@
+import { MoonLoader } from 'react-spinners'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faXmark, faPenToSquare } from '@fortawesome/free-solid-svg-icons'
 import { useRemoveStoreItemMutation } from '../../api/apiSlice'
@@ -7,13 +8,14 @@ interface IProduct {
   image: string
   name: string
   description: string
+  id: string | undefined
 }
 
-const Product = ({ image, name, description }: IProduct) => {
-  const [removeStoreItem] = useRemoveStoreItemMutation()
+const Product = ({ image, name, description, id }: IProduct) => {
+  const [removeStoreItem, { isLoading }] = useRemoveStoreItemMutation()
 
   const removeFromStore = (name: string) => {
-    removeStoreItem(name)
+    removeStoreItem(id)
   }
 
   return (
@@ -26,12 +28,18 @@ const Product = ({ image, name, description }: IProduct) => {
         </div>
       </div>
       <div className='product__btn__container'>
-        <button>
-          <FontAwesomeIcon
-            icon={faXmark}
-            onClick={() => removeFromStore(name)}
+        {!isLoading ? (
+          <button>
+            <FontAwesomeIcon
+              icon={faXmark}
+              onClick={() => removeFromStore(name)}
+            />
+          </button>
+        ) : (
+          <MoonLoader
+            style={{ width: '25px', color: 'var(--main-font-color)' }}
           />
-        </button>
+        )}
         <button>
           <FontAwesomeIcon icon={faPenToSquare} />
         </button>

@@ -29,19 +29,18 @@ const Products = () => {
         />
       </>
     )
-  } else if (isSuccess) {
-    content = (
-      <div>
-        {items?.map((item) => (
-          <Product
-            image={`https://pizza-store.s3.eu-central-1.amazonaws.com/${item?.image_path}`}
-            name={item?.name}
-            description={item?.description}
-            key={item?._id}
-          />
-        ))}
-      </div>
-    )
+  } else if (isSuccess && items.length) {
+    content = items.map((item) => (
+      <Product
+        id={item._id}
+        image={item.image_path}
+        description={item.description}
+        key={item._id}
+        name={item.name}
+      />
+    ))
+  } else if (isSuccess && items.length === 0) {
+    content = <h1>No items found</h1>
   } else if (isError) {
     content = <h1>Error loading data..</h1>
   }

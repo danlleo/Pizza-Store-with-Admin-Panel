@@ -26,8 +26,7 @@ const ModalProducts = () => {
     product_carbs: '',
     product_protein: '',
     product_description: '',
-    product_type: '',
-    product_image: ''
+    product_type: ''
   })
   const dispatch = useAppDispatch()
 
@@ -56,12 +55,14 @@ const ModalProducts = () => {
   const handleSubmit = async (e: any) => {
     e.preventDefault()
 
+    const image = await e.target.product_image.files[0]
+
     await addItem({
       name: inputs.product_name,
       description: inputs.product_description,
       price: inputs.product_price,
       type: inputs.product_type,
-      image: e.target.product_image.files[0],
+      image: image,
       calories: inputs.product_calories,
       fat: inputs.product_fat,
       salt: inputs.product_salt,
@@ -86,7 +87,7 @@ const ModalProducts = () => {
           onClick={closeModal}
         />
         <h2>Add new product</h2>
-        <h3>Name and price*</h3>
+        <h3>Name and price</h3>
         <div className='modal__container__header'>
           <input
             type='text'
@@ -109,7 +110,7 @@ const ModalProducts = () => {
             style={{ width: '20%' }}
           />
         </div>
-        <h3>Nutrition*</h3>
+        <h3>Nutrition</h3>
         <div className='modal__container__nutrition'>
           <input
             type='number'
@@ -169,7 +170,7 @@ const ModalProducts = () => {
           onChange={handleChange}
           value={inputs.product_description}
         />
-        <h3>Choose a type*</h3>
+        <h3>Choose a type</h3>
         <select
           name='product_type'
           onChange={handleChange}
@@ -181,13 +182,8 @@ const ModalProducts = () => {
             </option>
           ))}
         </select>
-        <h3>Choose an image*</h3>
-        <input
-          type='file'
-          name='product_image'
-          onChange={handleChange}
-          value={inputs.product_image}
-        />
+        <h3>Choose an image</h3>
+        <input type='file' name='product_image' onChange={handleChange} />
         <input type='submit' value='Add product' />
       </form>
     </div>
