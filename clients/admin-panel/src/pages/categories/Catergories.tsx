@@ -9,13 +9,52 @@ import { ToastContainer } from 'react-toastify'
 import './Categories.css'
 
 const Categories = () => {
-  const { data: items, isLoading } = useGetStoreTypesQuery()
+  const { data: items, isLoading, isSuccess, isError } = useGetStoreTypesQuery()
 
   const dispatch = useAppDispatch()
   const isOpen = useAppSelector((state) => state.modalTypeState.isOpen)
 
   const openModal = () => {
     dispatch(openModalTypes())
+  }
+
+  let content
+
+  if (isLoading) {
+    content = (
+      <>
+        <PropagateLoader
+          color='var(--main-accent-color)'
+          style={{ alignSelf: 'center', marginTop: '1rem' }}
+        />
+      </>
+    )
+  } else if (isSuccess && items.length) {
+    content = (
+      <div>
+        {items?.map((item) => (
+          <Category name={item.type} id={item._id} key={item._id} />
+        ))}
+      </div>
+    )
+  } else if (isSuccess && items.length === 0) {
+    content = (
+      <div
+        style={{
+          display: 'flex',
+          width: '100%',
+          justifyContent: 'center',
+          marginTop: '1rem'
+        }}
+      >
+        <img
+          src='https://cdn-icons-png.flaticon.com/512/2748/2748558.png'
+          style={{ width: '500px' }}
+        />
+      </div>
+    )
+  } else if (isError) {
+    content = <h1>Error loading data..</h1>
   }
 
   return (
@@ -27,20 +66,7 @@ const Categories = () => {
           <button onClick={openModal}>Add Types</button>
         </div>
         {isOpen && <ModalTypes />}
-        {!isLoading ? (
-          <div>
-            {items?.map((item) => (
-              <Category name={item.type} key={item._id} />
-            ))}
-          </div>
-        ) : (
-          <>
-            <PropagateLoader
-              color='var(--main-accent-color)'
-              style={{ alignSelf: 'center', marginTop: '1rem' }}
-            />
-          </>
-        )}
+        {content}
       </div>
       <ToastContainer
         position='bottom-right'

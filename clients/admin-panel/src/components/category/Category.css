@@ -1,6 +1,7 @@
 .categoryItem {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 2rem;
   margin-bottom: 1rem;
   border-radius: 10px;

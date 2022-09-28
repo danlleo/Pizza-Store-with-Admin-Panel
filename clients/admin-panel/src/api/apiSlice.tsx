@@ -71,8 +71,8 @@ export const apiSlice = createApi({
       invalidatesTags: ['FoodTypes']
     }),
     removeStoreType: builder.mutation<any, any>({
-      query: (type) => ({
-        url: `/foodtypes/${type}`,
+      query: (id) => ({
+        url: `/foodtypes/${id}`,
         method: 'DELETE'
       }),
       invalidatesTags: ['FoodTypes']

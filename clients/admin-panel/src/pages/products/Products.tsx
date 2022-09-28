@@ -40,7 +40,21 @@ const Products = () => {
       />
     ))
   } else if (isSuccess && items.length === 0) {
-    content = <h1>No items found</h1>
+    content = (
+      <div
+        style={{
+          display: 'flex',
+          width: '100%',
+          justifyContent: 'center',
+          marginTop: '1rem'
+        }}
+      >
+        <img
+          src='https://cdn-icons-png.flaticon.com/512/2748/2748558.png'
+          style={{ width: '500px' }}
+        />
+      </div>
+    )
   } else if (isError) {
     content = <h1>Error loading data..</h1>
   }
