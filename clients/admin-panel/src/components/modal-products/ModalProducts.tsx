@@ -177,7 +177,7 @@ const ModalProducts = () => {
           value={inputs.product_type}
         >
           {items?.map((item) => (
-            <option value={item?.type} key={item?._id}>
+            <option value={item?._id} key={item?._id}>
               {item?.type}
             </option>
           ))}

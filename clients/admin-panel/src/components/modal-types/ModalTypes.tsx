@@ -56,6 +56,7 @@ const ModalTypes = () => {
           style={{ marginBottom: '1rem' }}
           value={typeName}
           onChange={(e) => setTypeName(e.target.value)}
+          required={true}
         />
         <input type='submit' value='Add product' />
       </form>
