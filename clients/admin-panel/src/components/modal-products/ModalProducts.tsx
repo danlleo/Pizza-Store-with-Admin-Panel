@@ -1,3 +1,4 @@
+import axios from 'axios'
 import { faXmark } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useAppDispatch } from '../../store'
@@ -26,7 +27,8 @@ const ModalProducts = () => {
     product_carbs: '',
     product_protein: '',
     product_description: '',
-    product_type: ''
+    product_type: '',
+    product_image: ''
   })
   const dispatch = useAppDispatch()
 
@@ -54,27 +56,6 @@ const ModalProducts = () => {
 
   const handleSubmit = async (e: any) => {
     e.preventDefault()
-
-    const image = await e.target.product_image.files[0]
-
-    await addItem({
-      name: inputs.product_name,
-      description: inputs.product_description,
-      price: inputs.product_price,
-      type: inputs.product_type,
-      image: image,
-      calories: inputs.product_calories,
-      fat: inputs.product_fat,
-      salt: inputs.product_salt,
-      carbs: inputs.product_carbs,
-      proteins: inputs.product_protein,
-      sugar: inputs.product_sugar
-    })
-      .unwrap()
-      .then(() => notifySuccess())
-      .catch((err) => {
-        notifyError(err.data)
-      })
   }
 
   return (
@@ -98,6 +79,7 @@ const ModalProducts = () => {
             onChange={handleChange}
             value={inputs.product_name}
             style={{ width: '80%', marginRight: '1rem' }}
+            autoComplete='off'
           />
           <input
             type='number'
@@ -108,6 +90,7 @@ const ModalProducts = () => {
             onChange={handleChange}
             value={inputs.product_price}
             style={{ width: '20%' }}
+            autoComplete='off'
           />
         </div>
         <h3>Nutrition</h3>
@@ -119,6 +102,7 @@ const ModalProducts = () => {
             required
             onChange={handleChange}
             value={inputs.product_calories}
+            autoComplete='off'
           />
           <input
             type='number'
@@ -127,6 +111,7 @@ const ModalProducts = () => {
             required
             onChange={handleChange}
             value={inputs.product_fat}
+            autoComplete='off'
           />
           <input
             type='number'
@@ -135,6 +120,7 @@ const ModalProducts = () => {
             required
             onChange={handleChange}
             value={inputs.product_sugar}
+            autoComplete='off'
           />
           <input
             type='number'
@@ -143,6 +129,7 @@ const ModalProducts = () => {
             required
             onChange={handleChange}
             value={inputs.product_salt}
+            autoComplete='off'
           />
           <input
             type='number'
@@ -151,6 +138,7 @@ const ModalProducts = () => {
             required
             onChange={handleChange}
             value={inputs.product_carbs}
+            autoComplete='off'
           />
           <input
             type='number'
@@ -159,6 +147,7 @@ const ModalProducts = () => {
             required
             onChange={handleChange}
             value={inputs.product_protein}
+            autoComplete='off'
           />
         </div>
         <h3>About</h3>
@@ -169,6 +158,7 @@ const ModalProducts = () => {
           className='description'
           onChange={handleChange}
           value={inputs.product_description}
+          autoComplete='off'
         />
         <h3>Choose a type</h3>
         <select
@@ -183,7 +173,7 @@ const ModalProducts = () => {
           ))}
         </select>
         <h3>Choose an image</h3>
-        <input type='file' name='product_image' onChange={handleChange} />
+        <input type='file' name='product_image' required accept='.png' />
         <input type='submit' value='Add product' />
       </form>
     </div>

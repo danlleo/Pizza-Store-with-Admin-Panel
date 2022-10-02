@@ -51,7 +51,11 @@ export const apiSlice = createApi({
       query: (product) => ({
         url: '/foods',
         method: 'POST',
-        body: product
+        body: product,
+        headers: {
+          accept: '*/*',
+          'Content-Type': 'multipart/form, boundary=--abc--abc--'
+        }
       }),
       invalidatesTags: ['FoodItems']
     }),

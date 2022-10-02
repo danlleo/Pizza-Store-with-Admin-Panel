@@ -34,7 +34,10 @@ const Product = ({ image, name, description, id }: IProduct) => {
   return (
     <div className='product'>
       <div className='product__container'>
-        <img src={image} alt='dish' />
+        <img
+          src={`https://pizza-store.s3.eu-central-1.amazonaws.com/${image}`}
+          alt='dish'
+        />
         <div className='product__container__about'>
           <h1>{name}</h1>
           <p>{description}</p>
