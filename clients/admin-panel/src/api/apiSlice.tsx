@@ -60,10 +60,10 @@ export const apiSlice = createApi({
           method: 'POST',
           body: formData
         })
+
         if (response.error) throw response.error
-        return response.data
-          ? { data: response.data }
-          : { error: response.error }
+
+        return response.data !== null && { data: response.data }
       },
       invalidatesTags: ['FoodItems']
     }),

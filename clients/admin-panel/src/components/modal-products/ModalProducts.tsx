@@ -40,6 +40,7 @@ const ModalProducts = () => {
 
   const notifySuccess = () => {
     toast.success('Successfully added!')
+    dispatch(closeProductModal())
   }
 
   const notifyError = (message: string) => {
