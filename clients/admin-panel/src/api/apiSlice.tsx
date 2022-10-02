@@ -48,15 +48,23 @@ export const apiSlice = createApi({
       providesTags: ['FoodTypes']
     }),
     addStoreItem: builder.mutation<any, any>({
-      query: (product) => ({
-        url: '/foods',
-        method: 'POST',
-        body: product,
-        headers: {
-          accept: '*/*',
-          'Content-Type': 'multipart/form, boundary=--abc--abc--'
+      async queryFn(args, _api, _extraOptions, baseQuery) {
+        const formData = new FormData()
+
+        for (const key of Object.keys(args)) {
+          formData.append(`${key}`, args[key])
         }
-      }),
+
+        const response = await baseQuery({
+          url: '/foods',
+          method: 'POST',
+          body: formData
+        })
+        if (response.error) throw response.error
+        return response.data
+          ? { data: response.data }
+          : { error: response.error }
+      },
       invalidatesTags: ['FoodItems']
     }),
     removeStoreItem: builder.mutation<any, any>({

@@ -1,4 +1,3 @@
-import axios from 'axios'
 import { faXmark } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useAppDispatch } from '../../store'
@@ -56,6 +55,27 @@ const ModalProducts = () => {
 
   const handleSubmit = async (e: any) => {
     e.preventDefault()
+
+    const image = await e.target.product_image.files[0]
+
+    await addItem({
+      name: inputs.product_name,
+      description: inputs.product_description,
+      price: inputs.product_price,
+      type: inputs.product_type,
+      image,
+      calories: inputs.product_calories,
+      fat: inputs.product_fat,
+      salt: inputs.product_salt,
+      carbs: inputs.product_carbs,
+      proteins: inputs.product_protein,
+      sugar: inputs.product_sugar
+    })
+      .unwrap()
+      .then(() => notifySuccess())
+      .catch((err) => {
+        notifyError(err.data)
+      })
   }
 
   return (
