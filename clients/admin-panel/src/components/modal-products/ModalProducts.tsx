@@ -62,7 +62,7 @@ const ModalProducts = () => {
       description: inputs.product_description,
       price: inputs.product_price,
       type: inputs.product_type,
-      image: image,
+      image,
       calories: inputs.product_calories,
       fat: inputs.product_fat,
       salt: inputs.product_salt,
