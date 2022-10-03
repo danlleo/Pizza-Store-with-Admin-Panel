@@ -1,3 +1,4 @@
+import Table from '../../components/table/Table'
 import Navbar from '../../layout/navbar/Navbar'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
@@ -7,7 +8,6 @@ import {
   faBellConcierge
 } from '@fortawesome/free-solid-svg-icons'
 import './Home.css'
-import Table from '../../components/table/Table'
 
 const Home = () => {
   return (
